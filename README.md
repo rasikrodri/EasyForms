@@ -1,8 +1,10 @@
 With EasyForms you can easily create app UI, app Windows, Tables, Forms with controls, Game UI, etc.
 
-***Easyforms keep content aligned even if the viewport size changes!
+***Easyforms keep content aligned even if the viewport size changes!***
 
 How to use the EasyFormRow node:
+
+-Some times, like when a new EasyFormsRow is added or a child is added to an EasyFormsRow, you will need to click on the Update EasyFormsRows button in order to see the changes in the editor
 
 -Add an EasyFormsRow to the scene
 -Add 2d node/nodes that has the 'size' property
