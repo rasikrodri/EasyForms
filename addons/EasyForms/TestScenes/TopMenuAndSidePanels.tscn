@@ -1,0 +1,125 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg3pbj4yxt2dc"]
+
+[ext_resource type="Script" path="res://addons/EasyForms/Components/EasyFormsRow.gd" id="1_2alio"]
+
+[node name="TopMenuAndSidePanels" type="Node2D"]
+
+[node name="EasyFormsRow4" type="Node2D" parent="."]
+script = ExtResource("1_2alio")
+ScaleChildrenToDomainHeight = true
+DisconectedFromSiblings = true
+RowHorizontalAlignment = 0
+
+[node name="Panel" type="Panel" parent="EasyFormsRow4"]
+offset_right = 182.0
+offset_bottom = 648.0
+
+[node name="EasyFormsRow5" type="Node2D" parent="."]
+script = ExtResource("1_2alio")
+ScaleChildrenToDomainHeight = true
+DisconectedFromSiblings = true
+RowHorizontalAlignment = 2
+
+[node name="Panel" type="Panel" parent="EasyFormsRow5"]
+offset_left = 992.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="EasyFormsRow" type="Node2D" parent="."]
+script = ExtResource("1_2alio")
+ScaleChildrenToDomainWidth = true
+DisconectedFromSiblings = true
+RowVerticalAlignment = 0
+RowHorizontalAlignment = 0
+ControlsHorizontalAlignment = 0
+
+[node name="Panel3" type="Panel" parent="EasyFormsRow"]
+offset_right = 1152.0
+offset_bottom = 50.0
+
+[node name="Panel" type="Panel" parent="EasyFormsRow/Panel3"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 34.0
+
+[node name="MenuBar" type="MenuBar" parent="EasyFormsRow/Panel3/Panel"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 219.0
+offset_bottom = 41.0
+
+[node name="File" type="PopupMenu" parent="EasyFormsRow/Panel3/Panel/MenuBar"]
+title = "File"
+size = Vector2i(100, 143)
+item_count = 5
+item_0/text = "New"
+item_1/text = "Open"
+item_1/id = 1
+item_2/text = "Save"
+item_2/id = 2
+item_3/text = "Save As"
+item_3/id = 3
+item_4/text = "Close"
+item_4/id = 4
+
+[node name="Edit" type="PopupMenu" parent="EasyFormsRow/Panel3/Panel/MenuBar"]
+title = "Edit"
+item_count = 2
+item_0/text = "Copy"
+item_1/text = "Paste"
+item_1/id = 1
+
+[node name="VSeparator" type="VSeparator" parent="EasyFormsRow/Panel3"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 2.0
+offset_right = 84.0
+offset_bottom = 32.0
+
+[node name="Panel2" type="Panel" parent="EasyFormsRow/Panel3"]
+layout_mode = 0
+offset_left = 84.0
+offset_right = 180.0
+offset_bottom = 34.0
+
+[node name="Button" type="Button" parent="EasyFormsRow/Panel3/Panel2"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "B1"
+
+[node name="Button2" type="Button" parent="EasyFormsRow/Panel3/Panel2"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 60.0
+offset_bottom = 31.0
+text = "B2"
+
+[node name="Button3" type="Button" parent="EasyFormsRow/Panel3/Panel2"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 92.0
+offset_bottom = 31.0
+text = "B3"
+
+[node name="EasyFormsRow2" type="Node2D" parent="."]
+script = ExtResource("1_2alio")
+ScaleChildrenToDomainWidth = true
+RowVerticalAlignment = 2
+RowHorizontalAlignment = 0
+
+[node name="Panel" type="Panel" parent="EasyFormsRow2"]
+offset_top = 568.0
+offset_right = 1152.0
+offset_bottom = 608.0
+
+[node name="EasyFormsRow3" type="Node2D" parent="."]
+script = ExtResource("1_2alio")
+ScaleChildrenToDomainWidth = true
+RowVerticalAlignment = 2
+RowHorizontalAlignment = 0
+
+[node name="Panel" type="Panel" parent="EasyFormsRow3"]
+offset_top = 608.0
+offset_right = 1152.0
+offset_bottom = 648.0

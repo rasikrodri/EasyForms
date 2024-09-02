@@ -1,0 +1,179 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3ksujyaanla"]
+
+[ext_resource type="Script" path="res://addons/EasyForms/Components/EasyFormsRow.gd" id="2_yuewo"]
+
+[node name="Node" type="Node"]
+
+[node name="Bootstrap_Row" type="Node2D" parent="."]
+script = ExtResource("2_yuewo")
+SidesMargin = 5.0
+SubRowDistance = 5.0
+CellsTopButtMargin = 15.0
+CellsSidesMargin = 5.0
+ControlsHorizontalAlignment = 1
+
+[node name="Label" type="Label" parent="Bootstrap_Row"]
+offset_left = 283.5
+offset_top = 199.5
+offset_right = 368.5
+offset_bottom = 222.5
+text = "First Name"
+
+[node name="LineEdit" type="LineEdit" parent="Bootstrap_Row"]
+offset_left = 373.5
+offset_top = 195.5
+offset_right = 573.5
+offset_bottom = 226.5
+
+[node name="Label2" type="Label" parent="Bootstrap_Row"]
+offset_left = 578.5
+offset_top = 199.5
+offset_right = 663.5
+offset_bottom = 222.5
+text = "Last Name"
+
+[node name="LineEdit2" type="LineEdit" parent="Bootstrap_Row"]
+offset_left = 668.5
+offset_top = 195.5
+offset_right = 868.5
+offset_bottom = 226.5
+
+[node name="Bootstrap_Row5" type="Node2D" parent="."]
+script = ExtResource("2_yuewo")
+SidesMargin = 5.0
+SubRowDistance = 5.0
+CellsTopButtMargin = 15.0
+CellsSidesMargin = 5.0
+ControlsHorizontalAlignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Bootstrap_Row5"]
+offset_left = 276.0
+offset_top = 241.5
+offset_right = 876.0
+offset_bottom = 245.5
+
+[node name="Bootstrap_Row2" type="Node2D" parent="."]
+script = ExtResource("2_yuewo")
+SidesMargin = 5.0
+SubRowDistance = 5.0
+CellsTopButtMargin = 15.0
+CellsSidesMargin = 5.0
+ControlsHorizontalAlignment = 1
+
+[node name="Label3" type="Label" parent="Bootstrap_Row2"]
+offset_left = 322.0
+offset_top = 264.5
+offset_right = 365.0
+offset_bottom = 287.5
+text = "Email"
+
+[node name="LineEdit3" type="LineEdit" parent="Bootstrap_Row2"]
+offset_left = 370.0
+offset_top = 260.5
+offset_right = 570.0
+offset_bottom = 291.5
+
+[node name="Label4" type="Label" parent="Bootstrap_Row2"]
+offset_left = 575.0
+offset_top = 264.5
+offset_right = 625.0
+offset_bottom = 287.5
+text = "Phone"
+
+[node name="LineEdit4" type="LineEdit" parent="Bootstrap_Row2"]
+offset_left = 630.0
+offset_top = 260.5
+offset_right = 830.0
+offset_bottom = 291.5
+
+[node name="Bootstrap_Row6" type="Node2D" parent="."]
+script = ExtResource("2_yuewo")
+SidesMargin = 5.0
+SubRowDistance = 5.0
+CellsTopButtMargin = 15.0
+CellsSidesMargin = 5.0
+ControlsHorizontalAlignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Bootstrap_Row6"]
+offset_left = 276.0
+offset_top = 306.5
+offset_right = 876.0
+offset_bottom = 310.5
+
+[node name="Bootstrap_Row4" type="Node2D" parent="."]
+script = ExtResource("2_yuewo")
+SidesMargin = 5.0
+SubRowDistance = 5.0
+CellsTopButtMargin = 15.0
+CellsSidesMargin = 5.0
+ControlsHorizontalAlignment = 1
+
+[node name="Label5" type="Label" parent="Bootstrap_Row4"]
+offset_left = 275.0
+offset_top = 329.5
+offset_right = 360.0
+offset_bottom = 352.5
+text = "Address 1"
+
+[node name="LineEdit5" type="LineEdit" parent="Bootstrap_Row4"]
+offset_left = 365.0
+offset_top = 325.5
+offset_right = 877.0
+offset_bottom = 356.5
+
+[node name="Bootstrap_Row8" type="Node2D" parent="."]
+script = ExtResource("2_yuewo")
+SidesMargin = 5.0
+SubRowDistance = 5.0
+CellsTopButtMargin = 15.0
+CellsSidesMargin = 5.0
+ControlsHorizontalAlignment = 1
+
+[node name="Label5" type="Label" parent="Bootstrap_Row8"]
+offset_left = 275.0
+offset_top = 375.5
+offset_right = 360.0
+offset_bottom = 398.5
+text = "Address 2"
+
+[node name="LineEdit5" type="LineEdit" parent="Bootstrap_Row8"]
+offset_left = 365.0
+offset_top = 371.5
+offset_right = 877.0
+offset_bottom = 402.5
+
+[node name="Bootstrap_Row7" type="Node2D" parent="."]
+script = ExtResource("2_yuewo")
+SidesMargin = 5.0
+SubRowDistance = 5.0
+CellsTopButtMargin = 15.0
+CellsSidesMargin = 5.0
+ControlsHorizontalAlignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Bootstrap_Row7"]
+offset_left = 276.0
+offset_top = 417.5
+offset_right = 876.0
+offset_bottom = 421.5
+
+[node name="Bootstrap_Row3" type="Node2D" parent="."]
+script = ExtResource("2_yuewo")
+SidesMargin = 5.0
+SubRowDistance = 5.0
+CellsSidesMargin = 106.0
+ControlsHorizontalAlignment = 1
+
+[node name="Button" type="Button" parent="Bootstrap_Row3"]
+offset_left = 423.0
+offset_top = 429.0
+offset_right = 523.0
+offset_bottom = 460.0
+text = "Submit"
+
+[node name="Button2" type="Button" parent="Bootstrap_Row3"]
+offset_left = 629.0
+offset_top = 429.0
+offset_right = 729.0
+offset_bottom = 460.0
+text = "Cancel
+"

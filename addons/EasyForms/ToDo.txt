@@ -1,0 +1,12 @@
+Limitations:
+	-an EasyFormsRow will be ignored if it is a child of another EasyFormsRow
+	-an EasyFormsRow can be a child of anything else, appart from a EasyFormsRow, 
+	and it's domain will be the size of that somethyng else
+
+To not Do because it is too complicated:
+	-Implement support for EasyFormRows within EasyFormRows - Too complicated - Maybe in the future
+
+To do:
+	-If needed, optimize coed for more speed 
+	
+To fix:

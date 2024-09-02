@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://wrdreyuggefx"]
+
+[ext_resource type="Script" path="res://addons/EasyForms/Components/EasyFormsRow.gd" id="1_igvu8"]
+
+[node name="EasyFormsRowMain" type="Node2D"]
+script = ExtResource("1_igvu8")
+ScaleChildrenToDomainWidth = true
+ScaleChildrenToDomainHeight = true
+LinesThickness = 3.0
+
+[node name="EasyRowsWithinEasyRows" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="EasyFormsRow" type="Node2D" parent="EasyRowsWithinEasyRows"]
+script = ExtResource("1_igvu8")
+CellsTopButtMargin = 130.0
+CellsSidesMargin = 40.0
+DrawLines = true
+LinesThickness = 3.0
+ControlsHorizontalAlignment = 1
+
+[node name="Panel" type="Panel" parent="EasyRowsWithinEasyRows/EasyFormsRow"]
+offset_left = 100.0
+offset_top = 224.0
+offset_right = 556.0
+offset_bottom = 424.0
+
+[node name="EasyFormsRow2" type="Node2D" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel"]
+script = ExtResource("1_igvu8")
+DrawLines = true
+LinesThickness = 3.0
+ControlsHorizontalAlignment = 4
+
+[node name="Label" type="Label" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel/EasyFormsRow2"]
+offset_left = 53.5
+offset_top = 84.5
+offset_right = 207.5
+offset_bottom = 115.5
+text = "Left Name:"
+
+[node name="LineEdit" type="LineEdit" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel/EasyFormsRow2"]
+offset_left = 207.5
+offset_top = 84.5
+offset_right = 402.5
+offset_bottom = 115.5
+
+[node name="Panel2" type="Panel" parent="EasyRowsWithinEasyRows/EasyFormsRow"]
+offset_left = 596.0
+offset_top = 224.0
+offset_right = 1052.0
+offset_bottom = 424.0
+
+[node name="EasyFormsRow3" type="Node2D" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel2"]
+script = ExtResource("1_igvu8")
+DrawLines = true
+LinesThickness = 3.0
+ControlsHorizontalAlignment = 4
+
+[node name="Label" type="Label" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel2/EasyFormsRow3"]
+offset_left = 47.5
+offset_top = 84.5
+offset_right = 187.5
+offset_bottom = 115.5
+text = "Right Name:"
+
+[node name="LineEdit" type="LineEdit" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel2/EasyFormsRow3"]
+offset_left = 187.5
+offset_top = 84.5
+offset_right = 408.5
+offset_bottom = 115.5
