@@ -1,12 +1,4 @@
-What can easily be created with EasyForms:
--App UI
-	-Windows
-	-Tables
- 	-Forms with controls
-  	-Etc
--Game UI
--Etc
-
+With EasyFOrms you can easily create app UI, app Windows, Tables, Forms with controls, Game UI, etc.
 
 How to use the EasyFormRow node:
 
