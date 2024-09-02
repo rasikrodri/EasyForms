@@ -1,3 +1,13 @@
+What can easily be created with EasyForms:
+-App UI
+	-Windows
+	-Tables
+ 	-Forms with controls
+  	-Etc
+-Game UI
+-Etc
+
+
 How to use the EasyFormRow node:
 
 -Add an EasyFormsRow to the scene
