@@ -1,4 +1,6 @@
-With EasyFOrms you can easily create app UI, app Windows, Tables, Forms with controls, Game UI, etc.
+With EasyForms you can easily create app UI, app Windows, Tables, Forms with controls, Game UI, etc.
+
+***Easyforms keep content aligned even if the viewport size changes!
 
 How to use the EasyFormRow node:
 
@@ -14,3 +16,13 @@ How to use the EasyFormRow node:
 Limitations:
 	-an EasyFormsRow cannot be a child of another EasyFormRow. This is not supported and probably will never be.
 	-if an EasyFormsRow'sparent does not have the size property the viewport size will be used instead.
+
+ Examples:
+
+Table
+ ![image](https://github.com/user-attachments/assets/dc41e924-6e4a-4822-8414-e4afd90e6902)
+
+ Log in form
+ ![image](https://github.com/user-attachments/assets/215145c1-0084-4167-b3bc-1b9e6c672224)
+
+
