@@ -6,6 +6,7 @@
 script = ExtResource("1_igvu8")
 ScaleChildrenToDomainWidth = true
 ScaleChildrenToDomainHeight = true
+DrawLines = true
 LinesThickness = 3.0
 
 [node name="EasyRowsWithinEasyRows" type="Panel" parent="."]

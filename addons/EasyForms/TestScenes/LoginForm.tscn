@@ -4,6 +4,16 @@
 
 [node name="Node" type="Node"]
 
+[node name="EasyFormsRow" type="Node2D" parent="."]
+script = ExtResource("2_muvi4")
+ScaleChildrenToDomainWidth = true
+ScaleChildrenToDomainHeight = true
+DisconectedFromSiblings = true
+
+[node name="Panel" type="Panel" parent="EasyFormsRow"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
 [node name="Bootstrap_Row3" type="Node2D" parent="."]
 script = ExtResource("2_muvi4")
 CellsTopButtMargin = 15.0
