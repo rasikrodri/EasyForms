@@ -1,17 +1,20 @@
 With EasyForms you can easily create app UI, app Windows, Tables, Forms with controls, Game UI, etc.
 
-***EasyForms keep content aligned even if the viewport size changes!***
-***EasyForms will move content to a new next row if it does not fit fully in the current row*** 
+***How do EasyFormRows behave:***
 
-How to use the EasyFormRow node:
+-EasyFormsRows node move their children to fit it's available area. They will keep their children aligned even if the viewport size changes!
+
+-EasyForms nodes will move their children to a new next row if it does not fit fully in the current row
+
+***How to use the EasyFormRow node:***
 
 -Some times, like when a new EasyFormsRow is added or a child is added to an EasyFormsRow, you will need to click on the Update EasyFormsRows button in order to see the changes in the editor
 
 -Add an EasyFormsRow to the scene
 
--Add 2d node/nodes that has the 'size' property (like a control)
+-Add 2d node/nodes as children of the EasyFormsRow.
 
--Set the EasyFormsRow settings in the inspector to alight it's content and aligth itself
+-Set the EasyFormsRow settings in the inspector to align it's childreb.
 
 -Add multiple EasyFormsRow as siblings and add child nodes tho them.
 	The EasyFormsRow will act like a table aligned or disaligned accorditn to the settings you give to each of the EasyFormsRow
