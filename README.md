@@ -1,6 +1,7 @@
 With EasyForms you can easily create app UI, app Windows, Tables, Forms with controls, Game UI, etc.
 
-***Easyforms keep content aligned even if the viewport size changes!***
+***EasyForms keep content aligned even if the viewport size changes!***
+***EasyForms will move content to a new next row if it does not fit fully in the current row*** 
 
 How to use the EasyFormRow node:
 
