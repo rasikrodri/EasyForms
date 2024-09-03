@@ -8,7 +8,9 @@ How to use the EasyFormRow node:
 -Some times, like when a new EasyFormsRow is added or a child is added to an EasyFormsRow, you will need to click on the Update EasyFormsRows button in order to see the changes in the editor
 
 -Add an EasyFormsRow to the scene
+
 -Add 2d node/nodes that has the 'size' property
+
 -Set the EasyFormsRow settings in the inspector to alight it's content and aligth itself
 
 -Add multiple EasyFormsRow as siblings and add child nodes tho them.
