@@ -9,7 +9,7 @@ How to use the EasyFormRow node:
 
 -Add an EasyFormsRow to the scene
 
--Add 2d node/nodes that has the 'size' property
+-Add 2d node/nodes that has the 'size' property (like a control)
 
 -Set the EasyFormsRow settings in the inspector to alight it's content and aligth itself
 
