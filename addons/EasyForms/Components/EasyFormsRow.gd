@@ -268,7 +268,7 @@ func CalculateTableLines()->void:
 	pass
 
 func TellServiceToUpdate()->void:
-	if _loadingDone: EasyFormsService.UpdateRowScene(self)
+	EasyFormsService.UpdateRowScene(self)
 	pass
 	
 func Reset()->void:
