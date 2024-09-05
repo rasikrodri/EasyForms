@@ -1,0 +1,132 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7u7pfn1n8mb5"]
+
+[ext_resource type="Script" path="res://addons/EasyForms/Components/EasyFormsRow.gd" id="1_i5rch"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbgds"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swisp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8sdg"]
+
+[node name="EasyFormsRow" type="Node2D"]
+script = ExtResource("1_i5rch")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(0.247059, 0.247059, 0.247059, 1)
+offset_left = 383.0
+offset_top = 230.0
+offset_right = 769.0
+offset_bottom = 418.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nbgds")
+
+[node name="Header" type="Node2D" parent="PanelContainer"]
+script = ExtResource("1_i5rch")
+LinesColor = Color(0.442911, 0.442911, 0.442911, 1)
+RowVerticalAlignment = 0
+ControlsHorizontalAlignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Header"]
+self_modulate = Color(0.247059, 0.247059, 0.247059, 1)
+offset_right = 386.0
+offset_bottom = 34.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_swisp")
+
+[node name="EasyFormsRow2" type="Node2D" parent="PanelContainer/Header/PanelContainer"]
+script = ExtResource("1_i5rch")
+SidesMargin = 8.0
+RowHorizontalAlignment = 0
+
+[node name="Label" type="Label" parent="PanelContainer/Header/PanelContainer/EasyFormsRow2"]
+offset_left = 8.0
+offset_top = 5.5
+offset_right = 50.0
+offset_bottom = 28.5
+text = "Login"
+
+[node name="EasyFormsRow" type="Node2D" parent="PanelContainer/Header/PanelContainer"]
+script = ExtResource("1_i5rch")
+DisconectedFromSiblings = true
+RowHorizontalAlignment = 2
+
+[node name="Button" type="Button" parent="PanelContainer/Header/PanelContainer/EasyFormsRow"]
+offset_left = 359.0
+offset_top = 1.5
+offset_right = 386.0
+offset_bottom = 32.5
+text = " X "
+
+[node name="Content" type="Node2D" parent="PanelContainer"]
+script = ExtResource("1_i5rch")
+SubRowDistance = 555.0
+RowVerticalAlignment = 0
+ControlsHorizontalAlignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Content"]
+self_modulate = Color(0.443137, 0.443137, 0.443137, 1)
+offset_top = 34.0
+offset_right = 386.0
+offset_bottom = 186.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m8sdg")
+
+[node name="Inputs4" type="Node2D" parent="PanelContainer/Content/PanelContainer"]
+script = ExtResource("1_i5rch")
+TopBottomMargin = 15.0
+CellsTopButtMargin = 7.0
+CellsSidesMargin = 11.0
+RowVerticalAlignment = 0
+ControlsHorizontalAlignment = 5
+
+[node name="Label1" type="Label" parent="PanelContainer/Content/PanelContainer/Inputs4"]
+offset_left = 89.0
+offset_top = 22.5
+offset_right = 174.0
+offset_bottom = 45.5
+text = "Username:"
+
+[node name="InputUsername" type="LineEdit" parent="PanelContainer/Content/PanelContainer/Inputs4"]
+offset_left = 186.0
+offset_top = 18.5
+offset_right = 297.0
+offset_bottom = 49.5
+
+[node name="Inputs2" type="Node2D" parent="PanelContainer/Content/PanelContainer"]
+script = ExtResource("1_i5rch")
+CellsTopButtMargin = 7.0
+CellsSidesMargin = 11.0
+RowVerticalAlignment = 0
+ControlsHorizontalAlignment = 5
+
+[node name="Label2" type="Label" parent="PanelContainer/Content/PanelContainer/Inputs2"]
+offset_left = 95.0
+offset_top = 60.5
+offset_right = 174.0
+offset_bottom = 83.5
+text = "Password:"
+
+[node name="UsernamePassword" type="LineEdit" parent="PanelContainer/Content/PanelContainer/Inputs2"]
+offset_left = 185.0
+offset_top = 56.5
+offset_right = 297.0
+offset_bottom = 87.5
+
+[node name="Inputs5" type="Node2D" parent="PanelContainer/Content/PanelContainer"]
+script = ExtResource("1_i5rch")
+DisconectedFromSiblings = true
+TopBottomMargin = 7.0
+CellsSidesMargin = 55.0
+RowVerticalAlignment = 2
+ControlsHorizontalAlignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/Content/PanelContainer/Inputs5"]
+offset_left = 72.5
+offset_top = 114.0
+offset_right = 167.5
+offset_bottom = 145.0
+text = "Cancel"
+
+[node name="Button2" type="Button" parent="PanelContainer/Content/PanelContainer/Inputs5"]
+offset_left = 222.5
+offset_top = 114.0
+offset_right = 313.5
+offset_bottom = 145.0
+text = "OK"

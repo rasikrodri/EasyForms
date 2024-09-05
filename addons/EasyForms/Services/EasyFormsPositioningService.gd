@@ -227,6 +227,7 @@ func GetWidestCellPerColumn(rows:Array)->Array[float]:
 						
 			for c in range(subRow.size()):
 				var cell= subRow[c]
+				#cell.Area.size.x
 				if c > widetsCellsWidth.size() - 1:
 					widetsCellsWidth.append(cell.Area.size.x)
 				else:

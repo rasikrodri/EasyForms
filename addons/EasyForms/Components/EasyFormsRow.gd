@@ -14,6 +14,15 @@ var Domain:DomainEnum = DomainEnum.ParentNode
 
 @export_category("Row Settings")
 
+#This will ignore all other rows in the same parent and place this row as if it the only row in the parent
+var _disconectedFromSiblings:bool = false
+@export var DisconectedFromSiblings:bool = false:
+	get:
+		return _disconectedFromSiblings
+	set(value):
+		_disconectedFromSiblings = value
+		TellServiceToUpdate()
+
 var _scaleChildrenToDomainWidth:bool
 @export var ScaleChildrenToDomainWidth:bool:
 	get:
@@ -98,15 +107,6 @@ var _linesThickness:float = 1.0
 		
 		
 @export_category("Alignment")
-
-#This will ignore all other rows in the same parent and place this row as if it the only row in the parent
-var _disconectedFromSiblings:bool = false
-@export var DisconectedFromSiblings:bool = false:
-	get:
-		return _disconectedFromSiblings
-	set(value):
-		_disconectedFromSiblings = value
-		TellServiceToUpdate()
 
 enum VerticalAlignmentEnum{
 	Top,
@@ -268,7 +268,7 @@ func CalculateTableLines()->void:
 	pass
 
 func TellServiceToUpdate()->void:
-	EasyFormsService.UpdateRowScene(self)
+	if _loadingDone: EasyFormsService.UpdateRowScene(self)
 	pass
 	
 func Reset()->void:
