@@ -5,11 +5,22 @@ var _positioningService:= preload("res://addons/EasyForms/Services/EasyFormsPosi
 
 var PreviewResolution:Vector2i = Vector2i(1280, 720)
 
+var _process_start_time:float
+
 func _ready():
 	#get_tree().connect("tree_changed", Callable(self, "OnTreeChanged"))
 	
 	#scene_changed.connect(self, "_on_scene_changed")
 	pass
+	
+func SetProcessStartTime()->void:
+	_process_start_time = Time.get_ticks_usec()
+	
+func PrintProcessTotalTime()->void:
+	var end_time = Time.get_ticks_usec()
+	var execution_time = end_time - _process_start_time
+	print("Function execution time: ", execution_time, " micro seconds = ", execution_time / 1000.0, " milliseconds")
+	
 
 func ConnectSignals(rowNode:EasyFormsRow)->void:
 	var viewport = rowNode.get_viewport()
@@ -59,16 +70,21 @@ func ChildExitingTree(child, viewport:Viewport, rowSceneTree:SceneTree)->void:
 	)
 	pass
 	
-func UpdateRowScene(rowNode:EasyFormsRow)->void:
+func UpdateRowScene(rowNode:EasyFormsRow)->void:	
 	_positioningService.UpdateAllInScene(
 		rowNode.get_tree(),
 		GetViewport(rowNode.get_viewport())
 	)
 	pass
+	
 func UpdateCurrentScene(sceneTree:SceneTree)->void:
+	SetProcessStartTime()
+	
 	_positioningService.UpdateAllInScene(
 		sceneTree,
 		GetViewport(sceneTree.root.get_viewport())
 	)
+	
+	PrintProcessTotalTime()
 	pass
 		

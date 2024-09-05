@@ -1,0 +1,153 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7u7pfn1n8mb5"]
+
+[ext_resource type="Script" path="res://addons/EasyForms/Components/EasyFormsRow.gd" id="1_jwqkr"]
+[ext_resource type="StyleBox" uid="uid://cso8dluvkw5x8" path="res://addons/EasyForms/Styles/WindowHeaderPanel.tres" id="2_kagt6"]
+[ext_resource type="StyleBox" uid="uid://cq5hxb72xianw" path="res://addons/EasyForms/Styles/WindowBackgroundPanel.tres" id="2_t2n4p"]
+[ext_resource type="StyleBox" uid="uid://cq7orn32r4868" path="res://addons/EasyForms/Styles/WindowContentPanel.tres" id="4_nwsib"]
+
+[node name="efrLogInForm" type="Node2D"]
+script = ExtResource("1_jwqkr")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(0.247059, 0.247059, 0.247059, 1)
+offset_left = 383.0
+offset_top = 216.0
+offset_right = 769.0
+offset_bottom = 432.0
+theme_override_styles/panel = ExtResource("2_t2n4p")
+
+[node name="Header" type="Node2D" parent="PanelContainer"]
+script = ExtResource("1_jwqkr")
+LinesColor = Color(0.442911, 0.442911, 0.442911, 1)
+RowVerticalAlignment = 0
+ControlsHorizontalAlignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Header"]
+self_modulate = Color(0.247059, 0.247059, 0.247059, 1)
+offset_right = 386.0
+offset_bottom = 34.0
+theme_override_styles/panel = ExtResource("2_kagt6")
+
+[node name="EasyFormsRow2" type="Node2D" parent="PanelContainer/Header/PanelContainer"]
+script = ExtResource("1_jwqkr")
+Independent = true
+SidesMargin = 8.0
+RowHorizontalAlignment = 0
+ControlsHorizontalAlignment = 0
+
+[node name="Label" type="Label" parent="PanelContainer/Header/PanelContainer/EasyFormsRow2"]
+offset_left = 8.0
+offset_top = 5.5
+offset_right = 50.0
+offset_bottom = 28.5
+text = "Login"
+
+[node name="EasyFormsRow" type="Node2D" parent="PanelContainer/Header/PanelContainer"]
+script = ExtResource("1_jwqkr")
+Independent = true
+RowHorizontalAlignment = 2
+ControlsHorizontalAlignment = 2
+
+[node name="btnCancel1" type="Button" parent="PanelContainer/Header/PanelContainer/EasyFormsRow"]
+offset_left = 359.0
+offset_top = 1.5
+offset_right = 386.0
+offset_bottom = 32.5
+focus_next = NodePath("../../../../Content/PanelContainer/Inputs4/Username")
+text = " x "
+
+[node name="Content" type="Node2D" parent="PanelContainer"]
+script = ExtResource("1_jwqkr")
+SubRowDistance = 555.0
+RowVerticalAlignment = 0
+ControlsHorizontalAlignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Content"]
+self_modulate = Color(0.443137, 0.443137, 0.443137, 1)
+offset_top = 34.0
+offset_right = 386.0
+offset_bottom = 214.0
+theme_override_styles/panel = ExtResource("4_nwsib")
+
+[node name="Inputs4" type="Node2D" parent="PanelContainer/Content/PanelContainer"]
+script = ExtResource("1_jwqkr")
+TopBottomMargin = 15.0
+CellsTopButtMargin = 7.0
+CellsSidesMargin = 13.0
+RowVerticalAlignment = 0
+ControlsHorizontalAlignment = 5
+
+[node name="Label1" type="Label" parent="PanelContainer/Content/PanelContainer/Inputs4"]
+offset_left = 95.0
+offset_top = 22.5
+offset_right = 180.0
+offset_bottom = 45.5
+text = "Username:"
+
+[node name="Username" type="LineEdit" parent="PanelContainer/Content/PanelContainer/Inputs4"]
+offset_left = 193.0
+offset_top = 18.5
+offset_right = 343.0
+offset_bottom = 49.5
+focus_next = NodePath("../../Inputs2/Password")
+focus_previous = NodePath("../../../../Header/PanelContainer/EasyFormsRow/btnCancel1")
+
+[node name="Inputs2" type="Node2D" parent="PanelContainer/Content/PanelContainer"]
+script = ExtResource("1_jwqkr")
+CellsTopButtMargin = 7.0
+CellsSidesMargin = 13.0
+RowVerticalAlignment = 0
+ControlsHorizontalAlignment = 5
+
+[node name="Label2" type="Label" parent="PanelContainer/Content/PanelContainer/Inputs2"]
+offset_left = 101.0
+offset_top = 60.5
+offset_right = 180.0
+offset_bottom = 83.5
+text = "Password:"
+
+[node name="Password" type="LineEdit" parent="PanelContainer/Content/PanelContainer/Inputs2"]
+offset_left = 193.0
+offset_top = 56.5
+offset_right = 343.0
+offset_bottom = 87.5
+focus_next = NodePath("../../Inputs3/cbRememberMe")
+focus_previous = NodePath("../../Inputs4/Username")
+secret = true
+
+[node name="Inputs3" type="Node2D" parent="PanelContainer/Content/PanelContainer"]
+script = ExtResource("1_jwqkr")
+CellsTopButtMargin = 7.0
+RowVerticalAlignment = 0
+ControlsHorizontalAlignment = 1
+
+[node name="cbRememberMe" type="CheckBox" parent="PanelContainer/Content/PanelContainer/Inputs3"]
+offset_left = 122.0
+offset_top = 94.5
+offset_right = 264.0
+offset_bottom = 125.5
+focus_next = NodePath("../../Inputs5/btnOk")
+focus_previous = NodePath("../../Inputs2/Password")
+text = "Remember Me"
+
+[node name="Inputs5" type="Node2D" parent="PanelContainer/Content/PanelContainer"]
+script = ExtResource("1_jwqkr")
+TopBottomMargin = 7.0
+CellsSidesMargin = 55.0
+RowVerticalAlignment = 2
+ControlsHorizontalAlignment = 1
+
+[node name="btnCancel2" type="Button" parent="PanelContainer/Content/PanelContainer/Inputs5"]
+offset_left = 72.5
+offset_top = 142.0
+offset_right = 167.5
+offset_bottom = 173.0
+text = "Cancel"
+
+[node name="btnOk" type="Button" parent="PanelContainer/Content/PanelContainer/Inputs5"]
+offset_left = 222.5
+offset_top = 142.0
+offset_right = 313.5
+offset_bottom = 173.0
+focus_previous = NodePath("../../Inputs3/cbRememberMe")
+text = "OK"

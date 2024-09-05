@@ -15,12 +15,12 @@ var Domain:DomainEnum = DomainEnum.ParentNode
 @export_category("Row Settings")
 
 #This will ignore all other rows in the same parent and place this row as if it the only row in the parent
-var _disconectedFromSiblings:bool = false
-@export var DisconectedFromSiblings:bool = false:
+var _independent:bool = false
+@export var Independent:bool = false:
 	get:
-		return _disconectedFromSiblings
+		return _independent
 	set(value):
-		_disconectedFromSiblings = value
+		_independent = value
 		TellServiceToUpdate()
 
 var _scaleChildrenToDomainWidth:bool

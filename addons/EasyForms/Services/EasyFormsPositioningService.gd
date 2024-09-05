@@ -75,7 +75,7 @@ func CalculateRowsCells(easyRows:Array, lastRowBottomEdgePosDictionary:Dictionar
 		var availableAreaSize:Vector2 = GetAvailableArea(domainKey, viewportAreaSize, easyFormsRow.get_parent())
 			
 		var lastRowBottomEdgePos:float
-		if easyFormsRow.DisconectedFromSiblings:
+		if easyFormsRow.Independent:
 			lastRowBottomEdgePos = 0.0
 		else:
 			lastRowBottomEdgePos = lastRowBottomEdgePosDictionary[domainKey]
@@ -86,7 +86,7 @@ func CalculateRowsCells(easyRows:Array, lastRowBottomEdgePosDictionary:Dictionar
 			availableAreaSize.x,
 			availableAreaSize.y
 		)
-		if easyFormsRow.DisconectedFromSiblings:
+		if easyFormsRow.Independent:
 			_easyFormsRowService.CalculateCells(areaAvailable, easyFormsRow)
 		else:
 			lastRowBottomEdgePosDictionary[domainKey] = _easyFormsRowService.CalculateCells(areaAvailable, easyFormsRow)
@@ -134,12 +134,12 @@ func SetPositions(mainRows:Array, viewportAreaSize:Vector2, widestRowWidth:float
 		var parentNode:Node = easyFormsRow.get_parent()
 		if easyFormsRow.Domain == EasyFormsRow.DomainEnum.ParentNode:
 			availableAreaSize = parentNode.size
-			if not easyFormsRow.DisconectedFromSiblings:
+			if not easyFormsRow.Independent:
 				lastRowBottomEdgePos = lastRowBottomEdgePosDictionary[str(parentNode)]
 				
 		else:
 			availableAreaSize = viewportAreaSize
-			if not easyFormsRow.DisconectedFromSiblings:
+			if not easyFormsRow.Independent:
 				lastRowBottomEdgePos = lastRowBottomEdgePosDictionary[viewportKey]
 		
 		var heightOffset:float = GetHeightOffset(easyFormsRow, availableAreaSize, lastRowBottomEdgePos)
@@ -152,7 +152,7 @@ func SetPositions(mainRows:Array, viewportAreaSize:Vector2, widestRowWidth:float
 			availableAreaSize.y
 		)
 		
-		if easyFormsRow.DisconectedFromSiblings:
+		if easyFormsRow.Independent:
 			_easyFormsRowService.PositionContorls(easyFormsRow, areaAvailable, heightOffset, easyFormsRow.size.x, GetEasyFormsRowCellsSizes(easyFormsRow))
 		else:
 			_easyFormsRowService.PositionContorls(easyFormsRow, areaAvailable, heightOffset, widestRowWidth, widestCellPerColumn)
@@ -166,7 +166,7 @@ func GetHeightOffset(easyFormsRow:EasyFormsRow, availableAreaSize:Vector2, lastR
 		
 	var veritcalOffsetForBottom:float = availableAreaSize.y - lastRowBottomEdgePos
 	
-	if easyFormsRow.DisconectedFromSiblings:
+	if easyFormsRow.Independent:
 		match easyFormsRow.RowVerticalAlignment:
 			EasyFormsRow.VerticalAlignmentEnum.Top:
 				return 0.0 #+ easyFormsRow.TopButtomMargin
@@ -208,7 +208,7 @@ func GetWidthOfWidestRow(rows:Array)->float:
 	var widestRowWidth:float
 	for row in rows:
 		
-		if row.DisconectedFromSiblings == true: continue
+		if row.Independent == true: continue
 		
 		if widestRowWidth < row.size.x: widestRowWidth = row.size.x
 			
@@ -220,7 +220,7 @@ func GetWidestCellPerColumn(rows:Array)->Array[float]:
 	var widetsCellsWidth:Array[float] = []
 	for row in rows:
 		
-		if row.DisconectedFromSiblings == true: continue
+		if row.Independent == true: continue
 		
 		for i in range(row.SubRows.size()):
 			var subRow:= row.SubRows[i] as Array
