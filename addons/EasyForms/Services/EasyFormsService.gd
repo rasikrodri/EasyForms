@@ -7,11 +7,16 @@ var PreviewResolution:Vector2i = Vector2i(1280, 720)
 
 var _process_start_time:float
 
+var _speedTestSubscribedNodes:Array[Node] = []
+
 func _ready():
 	#get_tree().connect("tree_changed", Callable(self, "OnTreeChanged"))
 	
 	#scene_changed.connect(self, "_on_scene_changed")
 	pass
+	
+func SubscribeNodeToProcessTimeTaken(node:Node)->void:
+	_speedTestSubscribedNodes.append(node)
 	
 func SetProcessStartTime()->void:
 	_process_start_time = Time.get_ticks_usec()
@@ -19,8 +24,8 @@ func SetProcessStartTime()->void:
 func PrintProcessTotalTime()->void:
 	var end_time = Time.get_ticks_usec()
 	var execution_time = end_time - _process_start_time
-	print("Function execution time: ", execution_time, " micro seconds = ", execution_time / 1000.0, " milliseconds")
-	
+	for node in _speedTestSubscribedNodes: node.UpdateMicroSecondsTaken(execution_time)
+		
 
 func ConnectSignals(rowNode:EasyFormsRow)->void:
 	var viewport = rowNode.get_viewport()
@@ -50,17 +55,25 @@ func GetViewport(viewport:Viewport)->Vector2:
 	pass
 	
 func ViewportReadyDetected(arguments:Array)->void:
+	SetProcessStartTime()
+	
 	_positioningService.UpdateAllInScene(
 		arguments[0],
 		GetViewport(arguments[0].root.get_viewport())
 	)
+	
+	PrintProcessTotalTime()
 	pass
 	
 func ViewportSizeChangeDetected(arguments:Array)->void:
+	SetProcessStartTime()
+	
 	_positioningService.UpdateAllInScene(
 		arguments[0],
 		GetViewport(arguments[0].root.get_viewport())
 	)
+	
+	PrintProcessTotalTime()
 	pass
 	
 func ChildExitingTree(child, viewport:Viewport, rowSceneTree:SceneTree)->void:

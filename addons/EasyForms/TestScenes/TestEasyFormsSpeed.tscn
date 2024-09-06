@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyv0poj3jimls"]
+
+[ext_resource type="Script" path="res://addons/EasyForms/TestScenes/test_easy_forms_speed.gd" id="1_1d56k"]
+[ext_resource type="Script" path="res://addons/EasyForms/Components/EasyFormsRow.gd" id="1_8ix4p"]
+[ext_resource type="PackedScene" uid="uid://c7u7pfn1n8mb5" path="res://addons/EasyForms/ReusableForms/LogInForm.tscn" id="1_ah743"]
+
+[node name="TestEasyFormsSpeed" type="Node2D"]
+script = ExtResource("1_1d56k")
+
+[node name="EasyFormsRow" type="Node2D" parent="."]
+script = ExtResource("1_8ix4p")
+CellsSidesMargin = 6.0
+RowVerticalAlignment = 0
+RowHorizontalAlignment = 0
+
+[node name="Label" type="Label" parent="EasyFormsRow"]
+offset_left = 3.0
+offset_right = 123.0
+offset_bottom = 23.0
+text = "Microseconds = 
+"
+
+[node name="lblMicroseconds" type="Label" parent="EasyFormsRow"]
+unique_name_in_owner = true
+offset_left = 129.0
+offset_right = 169.0
+offset_bottom = 23.0
+text = "0.0"
+
+[node name="EasyFormsRow2" type="Node2D" parent="."]
+script = ExtResource("1_8ix4p")
+CellsSidesMargin = 6.0
+RowVerticalAlignment = 0
+RowHorizontalAlignment = 0
+
+[node name="Label" type="Label" parent="EasyFormsRow2"]
+offset_left = 3.0
+offset_top = 23.0
+offset_right = 112.0
+offset_bottom = 46.0
+text = "Milliseconds = 
+"
+
+[node name="lblMilliseconds" type="Label" parent="EasyFormsRow2"]
+unique_name_in_owner = true
+offset_left = 129.0
+offset_top = 23.0
+offset_right = 169.0
+offset_bottom = 46.0
+text = "0.0"
+
+[node name="LogInForm" parent="." instance=ExtResource("1_ah743")]
+Independent = true
