@@ -201,17 +201,22 @@ func CalculateTableLines()->void:
 		#Draw the left side of the row
 		#Then add the right sides of each cell
 		
+		#***Also, to the top an dbuttom lines, add half the line thickness to every side of every line,
+		#otherwise the end of the lines will not match squarely
+		
 		var firstCellArea:Rect2=row.front()
 		var lastCellArea:Rect2= row.back()
+		
+		var halfLineSize:float = _linesThickness / 2.0
 		
 		#top line
 		var line:TableLine = TableLine.new(
 			Vector2(
-				firstCellArea.position.x,
+				firstCellArea.position.x - halfLineSize,
 				firstCellArea.position.y
 			),
 			Vector2(
-				lastCellArea.position.x + lastCellArea.size.x,
+				lastCellArea.position.x + lastCellArea.size.x + halfLineSize,
 				lastCellArea.position.y
 			),
 			_linesColor,
@@ -222,11 +227,11 @@ func CalculateTableLines()->void:
 		#bottom line
 		line = TableLine.new(
 			Vector2(
-				firstCellArea.position.x,
+				firstCellArea.position.x - halfLineSize,
 				firstCellArea.position.y + firstCellArea.size.y
 			),
 			Vector2(
-				lastCellArea.position.x + lastCellArea.size.x,
+				lastCellArea.position.x + lastCellArea.size.x + halfLineSize,
 				lastCellArea.position.y + lastCellArea.size.y
 			),
 			_linesColor,
@@ -249,7 +254,7 @@ func CalculateTableLines()->void:
 		)
 		_tableLines.append(line)
 			
-		#Now we just add the right line of eavery cell
+		#Now we just add the right line of every cell
 		for i in range(row.size()):
 			var cell:Rect2 = row[i]
 			var rightLine:TableLine = TableLine.new(
