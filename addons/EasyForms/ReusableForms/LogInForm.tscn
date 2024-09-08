@@ -18,9 +18,8 @@ theme_override_styles/panel = ExtResource("2_iom22")
 
 [node name="Header" type="Node2D" parent="PanelContainer"]
 script = ExtResource("1_i1dvp")
-LinesColor = Color(0.442911, 0.442911, 0.442911, 1)
 RowVerticalAlignment = 0
-ControlsHorizontalAlignment = 1
+LinesColor = Color(0.442911, 0.442911, 0.442911, 1)
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Header"]
 self_modulate = Color(0.247059, 0.247059, 0.247059, 1)
@@ -33,7 +32,6 @@ script = ExtResource("1_i1dvp")
 Independent = true
 SidesMargin = 8.0
 RowHorizontalAlignment = 0
-ControlsHorizontalAlignment = 0
 
 [node name="Label" type="Label" parent="PanelContainer/Header/PanelContainer/EasyFormsRow2"]
 offset_left = 8.0
@@ -46,7 +44,6 @@ text = "Login"
 script = ExtResource("1_i1dvp")
 Independent = true
 RowHorizontalAlignment = 2
-ControlsHorizontalAlignment = 2
 
 [node name="btnCancel1" type="Button" parent="PanelContainer/Header/PanelContainer/EasyFormsRow"]
 offset_left = 359.0
@@ -60,7 +57,6 @@ text = " x "
 script = ExtResource("1_i1dvp")
 SubRowDistance = 555.0
 RowVerticalAlignment = 0
-ControlsHorizontalAlignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Content"]
 offset_top = 34.0
@@ -71,15 +67,14 @@ theme_override_styles/panel = ExtResource("4_ov1ec")
 [node name="Inputs4" type="Node2D" parent="PanelContainer/Content/PanelContainer"]
 script = ExtResource("1_i1dvp")
 TopBottomMargin = 15.0
+RowVerticalAlignment = 0
 CellsTopButtMargin = 7.0
 CellsSidesMargin = 13.0
-RowVerticalAlignment = 0
-ControlsHorizontalAlignment = 5
 
 [node name="Label1" type="Label" parent="PanelContainer/Content/PanelContainer/Inputs4"]
-offset_left = 95.0
+offset_left = 43.0
 offset_top = 22.5
-offset_right = 180.0
+offset_right = 128.0
 offset_bottom = 45.5
 text = "Username:"
 
@@ -93,15 +88,14 @@ focus_previous = NodePath("../../../../Header/PanelContainer/EasyFormsRow/btnCan
 
 [node name="Inputs2" type="Node2D" parent="PanelContainer/Content/PanelContainer"]
 script = ExtResource("1_i1dvp")
+RowVerticalAlignment = 0
 CellsTopButtMargin = 7.0
 CellsSidesMargin = 13.0
-RowVerticalAlignment = 0
-ControlsHorizontalAlignment = 5
 
 [node name="Label2" type="Label" parent="PanelContainer/Content/PanelContainer/Inputs2"]
-offset_left = 101.0
+offset_left = 43.0
 offset_top = 60.5
-offset_right = 180.0
+offset_right = 122.0
 offset_bottom = 83.5
 text = "Password:"
 
@@ -116,9 +110,9 @@ secret = true
 
 [node name="Inputs3" type="Node2D" parent="PanelContainer/Content/PanelContainer"]
 script = ExtResource("1_i1dvp")
-CellsTopButtMargin = 7.0
 RowVerticalAlignment = 0
-ControlsHorizontalAlignment = 1
+CellsTopButtMargin = 7.0
+CellsContentHorizontalAlignment = 1
 
 [node name="cbRememberMe" type="CheckBox" parent="PanelContainer/Content/PanelContainer/Inputs3"]
 offset_left = 122.0
@@ -132,21 +126,20 @@ text = "Remember Me"
 [node name="Inputs5" type="Node2D" parent="PanelContainer/Content/PanelContainer"]
 script = ExtResource("1_i1dvp")
 TopBottomMargin = 7.0
-CellsSidesMargin = 55.0
 RowVerticalAlignment = 2
-ControlsHorizontalAlignment = 1
+CellsSidesMargin = 55.0
 
 [node name="btnCancel2" type="Button" parent="PanelContainer/Content/PanelContainer/Inputs5"]
-offset_left = 72.5
+offset_left = 64.0
 offset_top = 142.0
-offset_right = 167.5
+offset_right = 159.0
 offset_bottom = 173.0
 text = "Cancel"
 
 [node name="btnOk" type="Button" parent="PanelContainer/Content/PanelContainer/Inputs5"]
-offset_left = 222.5
+offset_left = 214.0
 offset_top = 142.0
-offset_right = 313.5
+offset_right = 305.0
 offset_bottom = 173.0
 focus_previous = NodePath("../../Inputs3/cbRememberMe")
 text = "OK"

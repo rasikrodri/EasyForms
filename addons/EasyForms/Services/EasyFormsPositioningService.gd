@@ -63,8 +63,27 @@ func CalculateRowsInArea(rows:Array[EasyFormsRow], viewportAreaSize:Vector2)->vo
 	for domainRows in rowsByDomain.values():
 		var widestRowWidth:float = GetWidthOfWidestRow(domainRows)
 		var widestCellPerColumn:Array[float] = GetWidestCellPerColumn(domainRows)
+		
+		##This will fix, for when aligning Table Like, cells to be in subrows or not
+		#AdjustSubrowsToFitWhenTableLike(domainRows, widestCellPerColumn)
+		
 		SetPositions(domainRows, viewportAreaSize, widestRowWidth, widestCellPerColumn, lastRowBottomEdgePosDictionary)
 	pass
+	
+#func AdjustSubrowsToFitWhenTableLike(domainRows:Array, widestCellPerColumn:Array[float])->void:
+	#var totalWidth:float = 0.0
+	#for val in widestCellPerColumn: totalWidth += val
+	#
+	#for easyFormsRow in domainRows:
+		#if totalWidth > easysFormRow.size.x:
+			#for subrow in easyFormsRow.SubRows:
+				##Get the width of the subrow
+				##If subrow is bigger, move the last cell to the next subrow,
+				##And repeat until there is only 1 cell left in the current row
+				##or all cell fit within domain
+				#
+				##Then do the same with the next subrows
+	#pass
 	
 func CalculateRowsCells(easyRows:Array, lastRowBottomEdgePosDictionary:Dictionary, domainKey:String, viewportAreaSize:Vector2)->void:
 	for easyFormsRow in easyRows:

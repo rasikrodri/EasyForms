@@ -6,164 +6,164 @@
 
 [node name="Bootstrap_Row" type="Node2D" parent="."]
 script = ExtResource("2_lo05b")
+CellsTopButtMargin = 18.0
 DrawLines = true
-ControlsHorizontalAlignment = 5
 
 [node name="Bootstrap_Row#Button" type="Button" parent="Bootstrap_Row"]
-offset_left = 18.5
-offset_top = 240.0
-offset_right = 81.5
-offset_bottom = 271.0
+offset_left = -42.5
+offset_top = 231.0
+offset_right = 20.5
+offset_bottom = 262.0
 text = "Submit"
 
 [node name="Bootstrap_Row#Button2" type="Button" parent="Bootstrap_Row"]
-offset_left = 89.5
-offset_top = 240.0
-offset_right = 205.5
-offset_bottom = 271.0
+offset_left = 81.5
+offset_top = 231.0
+offset_right = 197.5
+offset_bottom = 262.0
 text = "bt 2"
 
 [node name="Bootstrap_Row#Button3" type="Button" parent="Bootstrap_Row"]
-offset_left = 256.5
-offset_top = 240.0
-offset_right = 356.5
-offset_bottom = 271.0
+offset_left = 205.5
+offset_top = 231.0
+offset_right = 305.5
+offset_bottom = 262.0
 text = "sdfsdfsdf"
 
 [node name="Bootstrap_Row#Button4" type="Button" parent="Bootstrap_Row"]
-offset_left = 357.5
-offset_top = 240.0
-offset_right = 480.5
-offset_bottom = 271.0
+offset_left = 356.5
+offset_top = 231.0
+offset_right = 479.5
+offset_bottom = 262.0
 text = "sdfsdrfwsdfsdf"
 
 [node name="Bootstrap_Row#Button5" type="Button" parent="Bootstrap_Row"]
 offset_left = 480.5
-offset_top = 240.0
+offset_top = 231.0
 offset_right = 630.5
-offset_bottom = 271.0
+offset_bottom = 262.0
 text = "sdfsdfsdfsdgsdcvb"
 
 [node name="Bootstrap_Row#Button6" type="Button" parent="Bootstrap_Row"]
 offset_left = 630.5
-offset_top = 240.0
+offset_top = 231.0
 offset_right = 772.5
-offset_bottom = 271.0
+offset_bottom = 262.0
 text = "xcbxcbxcbxcbxcb"
 
 [node name="Bootstrap_Row#Button7" type="Button" parent="Bootstrap_Row"]
 offset_left = 772.5
-offset_top = 240.0
+offset_top = 231.0
 offset_right = 896.5
-offset_bottom = 271.0
+offset_bottom = 262.0
 text = "xcbxcbxcbxcbx"
 
 [node name="Bootstrap_Row#Button8" type="Button" parent="Bootstrap_Row"]
-offset_left = 946.5
-offset_top = 240.0
-offset_right = 1070.5
-offset_bottom = 271.0
+offset_left = 896.5
+offset_top = 231.0
+offset_right = 1020.5
+offset_bottom = 262.0
 text = "xcbxcbxcbxcbx"
 
 [node name="Bootstrap_Row#Button9" type="Button" parent="Bootstrap_Row"]
 offset_left = 1070.5
-offset_top = 240.0
+offset_top = 231.0
 offset_right = 1194.5
-offset_bottom = 271.0
+offset_bottom = 262.0
 text = "xcbxcbxcbxcbx"
 
 [node name="Bootstrap_Row#Button10" type="Button" parent="Bootstrap_Row"]
 offset_left = -42.5
-offset_top = 308.5
+offset_top = 317.5
 offset_right = 81.5
-offset_bottom = 339.5
+offset_bottom = 348.5
 text = "xcbxcbxcbxcbx"
 
 [node name="Bootstrap_Row#Button11" type="Button" parent="Bootstrap_Row"]
 offset_left = 81.5
-offset_top = 308.5
+offset_top = 317.5
 offset_right = 205.5
-offset_bottom = 339.5
+offset_bottom = 348.5
 text = "xcbxcbxcbxcbx"
 
 [node name="Bootstrap_Row#Button12" type="Button" parent="Bootstrap_Row"]
-offset_left = 232.5
-offset_top = 308.5
-offset_right = 356.5
-offset_bottom = 339.5
+offset_left = 205.5
+offset_top = 317.5
+offset_right = 329.5
+offset_bottom = 348.5
 text = "xcbxcbxcbxcbx"
 
 [node name="Bootstrap_Row#Button13" type="Button" parent="Bootstrap_Row"]
 offset_left = 356.5
-offset_top = 308.5
+offset_top = 317.5
 offset_right = 480.5
-offset_bottom = 339.5
+offset_bottom = 348.5
 text = "xcbxcbxcbxcbx"
 
 [node name="Bootstrap_Row#Button14" type="Button" parent="Bootstrap_Row"]
-offset_left = 506.5
-offset_top = 308.5
-offset_right = 630.5
-offset_bottom = 339.5
+offset_left = 480.5
+offset_top = 317.5
+offset_right = 604.5
+offset_bottom = 348.5
 text = "xcbxcbxcbxcbx"
 
 [node name="Bootstrap_Row#Button15" type="Button" parent="Bootstrap_Row"]
-offset_left = 648.5
-offset_top = 308.5
-offset_right = 772.5
-offset_bottom = 339.5
+offset_left = 630.5
+offset_top = 317.5
+offset_right = 754.5
+offset_bottom = 348.5
 text = "xcbxcbxcbxcbx"
 
 [node name="Bootstrap_Row#Label" type="Label" parent="Bootstrap_Row"]
-offset_left = 854.5
-offset_top = 312.5
-offset_right = 896.5
-offset_bottom = 335.5
+offset_left = 772.5
+offset_top = 321.5
+offset_right = 814.5
+offset_bottom = 344.5
 text = "Label"
 
 [node name="Bootstrap_Row#Panel" type="Panel" parent="Bootstrap_Row"]
 offset_left = 896.5
-offset_top = 271.0
+offset_top = 280.0
 offset_right = 1070.5
-offset_bottom = 377.0
+offset_bottom = 386.0
 
 [node name="Bootstrap_Row_Panel#Label" type="Label" parent="Bootstrap_Row"]
-offset_left = 1118.5
-offset_top = 312.5
-offset_right = 1194.5
-offset_bottom = 335.5
+offset_left = 1070.5
+offset_top = 321.5
+offset_right = 1146.5
+offset_bottom = 344.5
 text = "The Panel
 "
 vertical_alignment = 1
 
 [node name="Bootstrap_Row3" type="Node2D" parent="."]
 script = ExtResource("2_lo05b")
-ControlsHorizontalAlignment = 0
+DrawLines = true
 
 [node name="Button" type="Button" parent="Bootstrap_Row3"]
-offset_left = 43.0
-offset_top = 377.0
-offset_right = 116.0
-offset_bottom = 408.0
+offset_left = -42.5
+offset_top = 395.0
+offset_right = 30.5
+offset_bottom = 426.0
 text = "eeeeeee"
 
 [node name="Button2" type="Button" parent="Bootstrap_Row3"]
-offset_left = 116.0
-offset_top = 377.0
-offset_right = 152.0
-offset_bottom = 408.0
+offset_left = 81.5
+offset_top = 395.0
+offset_right = 117.5
+offset_bottom = 426.0
 text = "rrrr"
 
 [node name="Button3" type="Button" parent="Bootstrap_Row3"]
-offset_left = 152.0
-offset_top = 377.0
-offset_right = 303.0
-offset_bottom = 408.0
+offset_left = 205.5
+offset_top = 395.0
+offset_right = 356.5
+offset_bottom = 426.0
 text = "gggggggggggggggg"
 
 [node name="Button4" type="Button" parent="Bootstrap_Row3"]
-offset_left = 303.0
-offset_top = 377.0
-offset_right = 405.0
-offset_bottom = 408.0
+offset_left = 356.5
+offset_top = 395.0
+offset_right = 458.5
+offset_bottom = 426.0
 text = "sdsddgfgdfg"

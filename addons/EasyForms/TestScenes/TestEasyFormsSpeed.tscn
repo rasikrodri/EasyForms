@@ -9,9 +9,9 @@ script = ExtResource("1_1d56k")
 
 [node name="EasyFormsRow" type="Node2D" parent="."]
 script = ExtResource("1_8ix4p")
-CellsSidesMargin = 6.0
 RowVerticalAlignment = 0
 RowHorizontalAlignment = 0
+CellsSidesMargin = 6.0
 
 [node name="Label" type="Label" parent="EasyFormsRow"]
 offset_left = 3.0
@@ -29,9 +29,9 @@ text = "0.0"
 
 [node name="EasyFormsRow2" type="Node2D" parent="."]
 script = ExtResource("1_8ix4p")
-CellsSidesMargin = 6.0
 RowVerticalAlignment = 0
 RowHorizontalAlignment = 0
+CellsSidesMargin = 6.0
 
 [node name="Label" type="Label" parent="EasyFormsRow2"]
 offset_left = 3.0

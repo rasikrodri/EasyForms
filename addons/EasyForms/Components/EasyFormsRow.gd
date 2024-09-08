@@ -12,6 +12,10 @@ enum DomainEnum{
 }
 var Domain:DomainEnum = DomainEnum.ParentNode
 
+#The area available to fill within the specifyed margins
+#Used to reposition cells when table like alignement is scpecifyed
+var DomainArea:Rect2
+
 @export_category("Row Settings")
 
 #This will ignore all other rows in the same parent and place this row as if it the only row in the parent
@@ -63,7 +67,36 @@ var _subRowDistance:float = 0.0
 		_subRowDistance = value
 		TellServiceToUpdate()
 		
+enum VerticalAlignmentEnum{
+	Top,
+	Center,
+	Buttom
+}
+var _rowVerticalAlignment:VerticalAlignmentEnum = VerticalAlignmentEnum.Center
+@export var RowVerticalAlignment:VerticalAlignmentEnum = VerticalAlignmentEnum.Center:
+	get:
+		return _rowVerticalAlignment
+	set(value):
+		_rowVerticalAlignment = value
+		TellServiceToUpdate()
+
+enum HorizontalAlignmentEnum{
+	Left,
+	Center,
+	Right
+}
+
+var _rowHorizontalAlignment:HorizontalAlignmentEnum = HorizontalAlignmentEnum.Center
+@export var RowHorizontalAlignment:HorizontalAlignmentEnum = HorizontalAlignmentEnum.Center:
+	get:
+		return _rowHorizontalAlignment
+	set(value):
+		_rowHorizontalAlignment = value
+		TellServiceToUpdate()
+		
+		
 @export_category("Cells Settings")
+
 var _cellsTopButtMargin:float = 0.0
 @export_range(-10000.0, 10000.0, 1.0) var CellsTopButtMargin:float = 0.0:
 	get:
@@ -104,39 +137,7 @@ var _linesThickness:float = 1.0
 		_linesThickness = value
 		TellServiceToUpdate()
 		
-		
-		
-@export_category("Alignment")
-
-enum VerticalAlignmentEnum{
-	Top,
-	Center,
-	Buttom
-}
-var _rowVerticalAlignment:VerticalAlignmentEnum = VerticalAlignmentEnum.Center
-@export var RowVerticalAlignment:VerticalAlignmentEnum = VerticalAlignmentEnum.Center:
-	get:
-		return _rowVerticalAlignment
-	set(value):
-		_rowVerticalAlignment = value
-		TellServiceToUpdate()
-
-enum HorizontalAlignmentEnum{
-	Left,
-	Center,
-	Right
-}
-
-var _rowHorizontalAlignment:HorizontalAlignmentEnum = HorizontalAlignmentEnum.Center
-@export var RowHorizontalAlignment:HorizontalAlignmentEnum = HorizontalAlignmentEnum.Center:
-	get:
-		return _rowHorizontalAlignment
-	set(value):
-		_rowHorizontalAlignment = value
-		TellServiceToUpdate()
-		
-		
-enum ControlsHorizontalAlignmentEnum{
+enum CellsContentHorizontalAlignmentEnum{
 	Left,
 	Center,
 	Right,
@@ -144,13 +145,16 @@ enum ControlsHorizontalAlignmentEnum{
 	CenterTableLike,
 	RightTableLike
 }
-var _controlsHorizontalAlignment:ControlsHorizontalAlignmentEnum = ControlsHorizontalAlignmentEnum.LeftTableLike
-@export var ControlsHorizontalAlignment:ControlsHorizontalAlignmentEnum = ControlsHorizontalAlignmentEnum.LeftTableLike:
+var _cellsContentHorizontalAlignment:CellsContentHorizontalAlignmentEnum = CellsContentHorizontalAlignmentEnum.LeftTableLike
+@export var CellsContentHorizontalAlignment:CellsContentHorizontalAlignmentEnum = CellsContentHorizontalAlignmentEnum.LeftTableLike:
 	get:
-		return _controlsHorizontalAlignment
+		return _cellsContentHorizontalAlignment
 	set(value):
-		_controlsHorizontalAlignment = value
+		_cellsContentHorizontalAlignment = value
 		TellServiceToUpdate()
+		
+		
+
 
 var SubRows:Array[Array] = []#Before all filters are applyed
 var SubRowsAdjusted:Array[Array] = []#After all filters are applyed
@@ -261,12 +265,12 @@ func CalculateTableLines()->void:
 				Vector2(
 					cell.position.x + cell.size.x,
 					cell.position.y
-				), 
+				),
 				Vector2(
-					cell.position.x + cell.size.x, 
+					cell.position.x + cell.size.x,
 					cell.position.y + cell.size.y
-				), 
-				_linesColor, 
+				),
+				_linesColor,
 				_linesThickness
 			)
 			_tableLines.append(rightLine)

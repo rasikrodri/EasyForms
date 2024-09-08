@@ -32,22 +32,21 @@ func GetAllowedElements(easyFromsRow:EasyFormsRow)->Array[Node]:
 #all elements do not fit in the current line/row
 #Only the first/main line/row nees to have the top marging applied
 func CreateCells(areaAvailable:Rect2i, easyFromsRow:EasyFormsRow, controls:Array[Node], addTopMarginToSubRows:bool = true)->void:
-	var actualAvailable:Rect2
 	if addTopMarginToSubRows:
-		actualAvailable = Rect2(areaAvailable.position.x + easyFromsRow.SidesMargin, areaAvailable.position.y + easyFromsRow.TopBottomMargin, areaAvailable.size.x - (easyFromsRow.SidesMargin * 2.0), areaAvailable.size.y - (easyFromsRow.TopBottomMargin * 2.0))
+		easyFromsRow.DomainArea = Rect2(areaAvailable.position.x + easyFromsRow.SidesMargin, areaAvailable.position.y + easyFromsRow.TopBottomMargin, areaAvailable.size.x - (easyFromsRow.SidesMargin * 2.0), areaAvailable.size.y - (easyFromsRow.TopBottomMargin * 2.0))
 	else:
-		actualAvailable = Rect2(areaAvailable.position.x + easyFromsRow.SidesMargin, areaAvailable.position.y, areaAvailable.size.x - easyFromsRow.SidesMargin, areaAvailable.size.y)
+		easyFromsRow.DomainArea = Rect2(areaAvailable.position.x + easyFromsRow.SidesMargin, areaAvailable.position.y, areaAvailable.size.x - easyFromsRow.SidesMargin, areaAvailable.size.y)
 		
 	var row:Array = []
 	
-	var widthAvailable:float = actualAvailable.size.x
+	var widthAvailable:float = easyFromsRow.DomainArea.size.x
 	var maxElementHeigh:float = 0.0
 	var lastCellEnd:float = 0.0
 	var startingCount:int = controls.size()
 	while controls.size() > 0:
 		var currElement = controls[0]
 		
-		if currElement is EasyFormsRow: self.CalculateCells(actualAvailable, currElement)
+		if currElement is EasyFormsRow: self.CalculateCells(easyFromsRow.DomainArea, currElement)
 		
 		#does currElement fits in current available width?
 		#if not then create the next sub row
@@ -65,20 +64,20 @@ func CreateCells(areaAvailable:Rect2i, easyFromsRow:EasyFormsRow, controls:Array
 		var width:float
 		var height:float
 		if easyFromsRow.ScaleChildrenToDomainWidth:
-			startX = actualAvailable.position.x
-			width = actualAvailable.size.x
+			startX = easyFromsRow.DomainArea.position.x
+			width = easyFromsRow.DomainArea.size.x
 			if "size" in cell.Element: cell.Element.size.x = width
 		else:
-			startX = actualAvailable.position.x + lastCellEnd
+			startX = easyFromsRow.DomainArea.position.x + lastCellEnd
 			width = currElement.size.x + easyFromsRow.CellsSidesMargin
 			
 			
 		if easyFromsRow.ScaleChildrenToDomainHeight:
-			startY = actualAvailable.position.y
-			height = actualAvailable.size.y
+			startY = easyFromsRow.DomainArea.position.y
+			height = easyFromsRow.DomainArea.size.y
 			if "size" in cell.Element: cell.Element.size.y = height
 		else:
-			startY = actualAvailable.position.y
+			startY = easyFromsRow.DomainArea.position.y
 			height = currElement.size.y + easyFromsRow.CellsTopButtMargin
 			
 		cell.Area = Rect2(startX, startY, width, height)
@@ -96,7 +95,7 @@ func CreateCells(areaAvailable:Rect2i, easyFromsRow:EasyFormsRow, controls:Array
 	ResizeCellsToHeight(row, maxElementHeigh)
 	
 	#set row size, it will include all sub rows
-	var width:float = actualAvailable.size.x - widthAvailable
+	var width:float = easyFromsRow.DomainArea.size.x - widthAvailable
 	if width > easyFromsRow.size.x: easyFromsRow.size.x = width
 	if maxElementHeigh > easyFromsRow.size.y: easyFromsRow.size.y = maxElementHeigh
 	
@@ -120,11 +119,11 @@ func PositionContorls(easyFormsRow:EasyFormsRow, areaAvailable:Rect2, heightOffs
 				
 		match easyFormsRow.RowHorizontalAlignment:
 			EasyFormsRow.HorizontalAlignmentEnum.Left:
-				PositionControlsToTheLeft(easyFormsRow, easyFormsRow.ControlsHorizontalAlignment, subRow, heightOffset, widestRowWidth, widestCellsWidthDifference)
+				PositionControlsToTheLeft(easyFormsRow, easyFormsRow.CellsContentHorizontalAlignment, subRow, heightOffset, widestRowWidth, widestCellsWidthDifference)
 			EasyFormsRow.HorizontalAlignmentEnum.Right:
-				PositionControlsToTheRight(easyFormsRow, easyFormsRow.ControlsHorizontalAlignment, areaAvailable, subRow, heightOffset, widestRowWidth, widestCellsWidthDifference)
+				PositionControlsToTheRight(easyFormsRow, easyFormsRow.CellsContentHorizontalAlignment, areaAvailable, subRow, heightOffset, widestRowWidth, widestCellsWidthDifference)
 			EasyFormsRow.HorizontalAlignmentEnum.Center:
-				PositionControlsOnTheCenter(easyFormsRow, easyFormsRow.ControlsHorizontalAlignment, areaAvailable, subRow, heightOffset, widestRowWidth, widestCellsWidthDifference)
+				PositionControlsOnTheCenter(easyFormsRow, easyFormsRow.CellsContentHorizontalAlignment, areaAvailable, subRow, heightOffset, widestRowWidth, widestCellsWidthDifference)
 	pass
 	
 func GetCellsDifferences(subRow:Array, widestCellPerColumn:Array[float])->Array[float]:
@@ -149,7 +148,7 @@ func GetSubRowWidth(subRow:Array)->float:
 	return subRowWidth
 	pass
 	
-func PositionControlsToTheLeft(easyFormsRow:EasyFormsRow, controlHorizPositioning:EasyFormsRow.ControlsHorizontalAlignmentEnum, subRow:Array, heightOffset:float, widestRowWidth:float=0, widestCellsWidthDifference:Array[float] = [])->void:
+func PositionControlsToTheLeft(easyFormsRow:EasyFormsRow, cellsContentHorizPositioning:EasyFormsRow.CellsContentHorizontalAlignmentEnum, subRow:Array, heightOffset:float, widestRowWidth:float=0, widestCellsWidthDifference:Array[float] = [])->void:
 	var widestSubRowWidthDifference:float = widestRowWidth - GetSubRowWidth(subRow)
 	
 	var subRowWidth:float = GetSubRowWidth(subRow)
@@ -165,9 +164,9 @@ func PositionControlsToTheLeft(easyFormsRow:EasyFormsRow, controlHorizPositionin
 	for cell in subRow:
 		var control:Node = cell.Element
 		
-		match controlHorizPositioning:
+		match cellsContentHorizPositioning:
 			
-			EasyFormsRow.ControlsHorizontalAlignmentEnum.Left:
+			EasyFormsRow.CellsContentHorizontalAlignmentEnum.Left:
 				var cellPos := Rect2(
 					cell.Area.position.x,
 					cell.Area.position.y + heightOffset,
@@ -181,7 +180,7 @@ func PositionControlsToTheLeft(easyFormsRow:EasyFormsRow, controlHorizPositionin
 				)
 				control.position = pos
 				
-			EasyFormsRow.ControlsHorizontalAlignmentEnum.Right:
+			EasyFormsRow.CellsContentHorizontalAlignmentEnum.Right:
 				var cellPos := Rect2(
 					cell.Area.position.x  + widestSubRowWidthDifference,
 					cell.Area.position.y + heightOffset,
@@ -195,7 +194,7 @@ func PositionControlsToTheLeft(easyFormsRow:EasyFormsRow, controlHorizPositionin
 				)
 				control.position = pos
 				
-			EasyFormsRow.ControlsHorizontalAlignmentEnum.Center:
+			EasyFormsRow.CellsContentHorizontalAlignmentEnum.Center:
 				var cellPos := Rect2(
 					cell.Area.position.x   + xOffset,
 					cell.Area.position.y + heightOffset,
@@ -209,7 +208,7 @@ func PositionControlsToTheLeft(easyFormsRow:EasyFormsRow, controlHorizPositionin
 				)
 				control.position = pos
 				
-			EasyFormsRow.ControlsHorizontalAlignmentEnum.LeftTableLike:
+			EasyFormsRow.CellsContentHorizontalAlignmentEnum.LeftTableLike:
 				var cellPos := Rect2(
 					cell.Area.position.x + lastCellDifference,
 					cell.Area.position.y + heightOffset,
@@ -238,7 +237,7 @@ func PositionControlsToTheLeft(easyFormsRow:EasyFormsRow, controlHorizPositionin
 						)
 						rowAdjusted.append(extaCellPos)
 				
-			EasyFormsRow.ControlsHorizontalAlignmentEnum.CenterTableLike:
+			EasyFormsRow.CellsContentHorizontalAlignmentEnum.CenterTableLike:
 				var cellPos := Rect2(
 					cell.Area.position.x + lastCellDifference ,
 					cell.Area.position.y + heightOffset,
@@ -267,7 +266,7 @@ func PositionControlsToTheLeft(easyFormsRow:EasyFormsRow, controlHorizPositionin
 						)
 						rowAdjusted.append(extaCellPos)
 				
-			EasyFormsRow.ControlsHorizontalAlignmentEnum.RightTableLike:
+			EasyFormsRow.CellsContentHorizontalAlignmentEnum.RightTableLike:
 				var cellPos := Rect2(
 					cell.Area.position.x + lastCellDifference,
 					cell.Area.position.y + heightOffset,
@@ -300,7 +299,7 @@ func PositionControlsToTheLeft(easyFormsRow:EasyFormsRow, controlHorizPositionin
 	easyFormsRow.SubRowsAdjusted.append(rowAdjusted)
 	pass
 	
-func PositionControlsToTheRight(easyFormsRow:EasyFormsRow, controlHorizPositioning:EasyFormsRow.ControlsHorizontalAlignmentEnum, areaAvailable:Rect2, subRow:Array, heightOffset:float, widestRowWidth:float=0, widestCellsWidthDifference:Array[float] = [])->void:
+func PositionControlsToTheRight(easyFormsRow:EasyFormsRow, cellsContentHorizPositioning:EasyFormsRow.CellsContentHorizontalAlignmentEnum, areaAvailable:Rect2, subRow:Array, heightOffset:float, widestRowWidth:float=0, widestCellsWidthDifference:Array[float] = [])->void:
 	var lastCell:= subRow.back()
 	var distanceToRightEdge:float = (areaAvailable.position.x + areaAvailable.size.x) - (lastCell.Area.position.x + lastCell.Area.size.x)
 	distanceToRightEdge -= easyFormsRow.SidesMargin #(easyFormsRow.SidesMargin / 2.0)
@@ -314,14 +313,14 @@ func PositionControlsToTheRight(easyFormsRow:EasyFormsRow, controlHorizPositioni
 	
 	var rowAdjusted:Array = []
 	var insertedInReverse:bool
-	if easyFormsRow.ControlsHorizontalAlignment == EasyFormsRow.ControlsHorizontalAlignmentEnum.Left or \
-		easyFormsRow.ControlsHorizontalAlignment  == EasyFormsRow.ControlsHorizontalAlignmentEnum.Right or \
-		easyFormsRow.ControlsHorizontalAlignment  == EasyFormsRow.ControlsHorizontalAlignmentEnum.Center:
+	if easyFormsRow.CellsContentHorizontalAlignment == EasyFormsRow.CellsContentHorizontalAlignmentEnum.Left or \
+		easyFormsRow.CellsContentHorizontalAlignment  == EasyFormsRow.CellsContentHorizontalAlignmentEnum.Right or \
+		easyFormsRow.CellsContentHorizontalAlignment  == EasyFormsRow.CellsContentHorizontalAlignmentEnum.Center:
 		for cell in subRow:
 			var control:Node = cell.Element
 			
-			match controlHorizPositioning:
-				EasyFormsRow.ControlsHorizontalAlignmentEnum.Left:
+			match cellsContentHorizPositioning:
+				EasyFormsRow.CellsContentHorizontalAlignmentEnum.Left:
 					var cellPos := Rect2(
 					cell.Area.position.x + distanceToRightEdge - offsetToLeft,
 					cell.Area.position.y + heightOffset,
@@ -335,7 +334,7 @@ func PositionControlsToTheRight(easyFormsRow:EasyFormsRow, controlHorizPositioni
 					)
 					control.position = pos
 				
-				EasyFormsRow.ControlsHorizontalAlignmentEnum.Right:
+				EasyFormsRow.CellsContentHorizontalAlignmentEnum.Right:
 					var cellPos := Rect2(
 					cell.Area.position.x + distanceToRightEdge,
 					cell.Area.position.y + heightOffset,
@@ -349,7 +348,7 @@ func PositionControlsToTheRight(easyFormsRow:EasyFormsRow, controlHorizPositioni
 					)
 					control.position = pos
 					
-				EasyFormsRow.ControlsHorizontalAlignmentEnum.Center:
+				EasyFormsRow.CellsContentHorizontalAlignmentEnum.Center:
 					var cellPos := Rect2(
 						cell.Area.position.x + distanceToRightEdge - xOffset,
 						cell.Area.position.y + heightOffset,
@@ -376,8 +375,8 @@ func PositionControlsToTheRight(easyFormsRow:EasyFormsRow, controlHorizPositioni
 			var cell = subRow[i]
 			var control:Node = cell.Element
 			
-			match controlHorizPositioning:
-				EasyFormsRow.ControlsHorizontalAlignmentEnum.LeftTableLike:
+			match cellsContentHorizPositioning:
+				EasyFormsRow.CellsContentHorizontalAlignmentEnum.LeftTableLike:
 					var cellPos := Rect2(
 						cell.Area.position.x + distanceToRightEdge - lastCellDifference - widestCellsWidthDifference[i],
 						cell.Area.position.y + heightOffset,
@@ -403,7 +402,7 @@ func PositionControlsToTheRight(easyFormsRow:EasyFormsRow, controlHorizPositioni
 							)
 							rowAdjusted.insert(0, extaCellPos)
 					
-				EasyFormsRow.ControlsHorizontalAlignmentEnum.CenterTableLike:
+				EasyFormsRow.CellsContentHorizontalAlignmentEnum.CenterTableLike:
 					var cellPos := Rect2(
 						cell.Area.position.x + distanceToRightEdge - lastCellDifference - widestCellsWidthDifference[i],
 						cell.Area.position.y + heightOffset,
@@ -429,7 +428,7 @@ func PositionControlsToTheRight(easyFormsRow:EasyFormsRow, controlHorizPositioni
 							)
 							rowAdjusted.insert(0, extaCellPos)
 					
-				EasyFormsRow.ControlsHorizontalAlignmentEnum.RightTableLike:
+				EasyFormsRow.CellsContentHorizontalAlignmentEnum.RightTableLike:
 					var cellPos := Rect2(
 						cell.Area.position.x + distanceToRightEdge - lastCellDifference - widestCellsWidthDifference[i],
 						cell.Area.position.y + heightOffset,
@@ -463,7 +462,7 @@ func PositionControlsToTheRight(easyFormsRow:EasyFormsRow, controlHorizPositioni
 	easyFormsRow.SubRowsAdjusted.append(rowAdjusted)
 	pass
 	
-func PositionControlsOnTheCenter(easyFormsRow:EasyFormsRow, controlHorizPositioning:EasyFormsRow.ControlsHorizontalAlignmentEnum, areaAvailable:Rect2, subRow:Array, heightOffset:float, widestRowWidth:float=0, widestCellsWidthDifference:Array[float] = [])->void:
+func PositionControlsOnTheCenter(easyFormsRow:EasyFormsRow, cellsContentHorizPositioning:EasyFormsRow.CellsContentHorizontalAlignmentEnum, areaAvailable:Rect2, subRow:Array, heightOffset:float, widestRowWidth:float=0, widestCellsWidthDifference:Array[float] = [])->void:
 	var widestRowWidthDifference:float = widestRowWidth - easyFormsRow.size.x
 	
 	var fisrtCell:= subRow.front()
@@ -488,8 +487,8 @@ func PositionControlsOnTheCenter(easyFormsRow:EasyFormsRow, controlHorizPosition
 	for cell in subRow:
 		var control:Node = cell.Element
 						
-		match controlHorizPositioning:
-			EasyFormsRow.ControlsHorizontalAlignmentEnum.Left:
+		match cellsContentHorizPositioning:
+			EasyFormsRow.CellsContentHorizontalAlignmentEnum.Left:
 				var cellPos := Rect2(
 					cell.Area.position.x + toAddLeft,
 					cell.Area.position.y + heightOffset,
@@ -503,7 +502,7 @@ func PositionControlsOnTheCenter(easyFormsRow:EasyFormsRow, controlHorizPosition
 				)
 				control.position = pos
 				
-			EasyFormsRow.ControlsHorizontalAlignmentEnum.Right:
+			EasyFormsRow.CellsContentHorizontalAlignmentEnum.Right:
 				var cellPos := Rect2(
 					cell.Area.position.x + toAddRight,
 					cell.Area.position.y + heightOffset,
@@ -517,7 +516,7 @@ func PositionControlsOnTheCenter(easyFormsRow:EasyFormsRow, controlHorizPosition
 				)
 				control.position = pos
 				
-			EasyFormsRow.ControlsHorizontalAlignmentEnum.Center:
+			EasyFormsRow.CellsContentHorizontalAlignmentEnum.Center:
 				var cellPos := Rect2(
 					cell.Area.position.x + toAddCenter,
 					cell.Area.position.y + heightOffset,
@@ -531,7 +530,7 @@ func PositionControlsOnTheCenter(easyFormsRow:EasyFormsRow, controlHorizPosition
 				)
 				control.position = pos
 				
-			EasyFormsRow.ControlsHorizontalAlignmentEnum.LeftTableLike:
+			EasyFormsRow.CellsContentHorizontalAlignmentEnum.LeftTableLike:
 				var toAddWithCellDifference:float = toAddCenterTable + lastTotalCellWidthDifference
 				lastTotalCellWidthDifference += widestCellsWidthDifference[cellIndex]
 				
@@ -561,7 +560,7 @@ func PositionControlsOnTheCenter(easyFormsRow:EasyFormsRow, controlHorizPosition
 						)
 						rowAdjusted.append(extaCellPos)
 				
-			EasyFormsRow.ControlsHorizontalAlignmentEnum.CenterTableLike:
+			EasyFormsRow.CellsContentHorizontalAlignmentEnum.CenterTableLike:
 				var toAddWithCellDifference:float = toAddCenterTable + lastTotalCellWidthDifference
 				lastTotalCellWidthDifference += widestCellsWidthDifference[cellIndex]
 				
@@ -591,7 +590,7 @@ func PositionControlsOnTheCenter(easyFormsRow:EasyFormsRow, controlHorizPosition
 						)
 						rowAdjusted.append(extaCellPos)
 				
-			EasyFormsRow.ControlsHorizontalAlignmentEnum.RightTableLike:
+			EasyFormsRow.CellsContentHorizontalAlignmentEnum.RightTableLike:
 				var toAddWithCellDifference:float = toAddCenterTable + lastTotalCellWidthDifference
 				lastTotalCellWidthDifference += widestCellsWidthDifference[cellIndex]
 				

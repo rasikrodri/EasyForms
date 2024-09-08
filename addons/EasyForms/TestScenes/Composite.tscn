@@ -17,7 +17,6 @@ script = ExtResource("1_igvu8")
 CellsTopButtMargin = 40.0
 CellsSidesMargin = 40.0
 LinesThickness = 3.0
-ControlsHorizontalAlignment = 1
 
 [node name="Panel" type="Panel" parent="EasyRowsWithinEasyRows/EasyFormsRow"]
 offset_left = 100.0
@@ -28,7 +27,6 @@ offset_bottom = 304.0
 [node name="EasyFormsRow2" type="Node2D" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel"]
 script = ExtResource("1_igvu8")
 LinesThickness = 3.0
-ControlsHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel/EasyFormsRow2"]
 offset_left = 53.5
@@ -52,7 +50,6 @@ offset_bottom = 304.0
 [node name="EasyFormsRow3" type="Node2D" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel2"]
 script = ExtResource("1_igvu8")
 LinesThickness = 3.0
-ControlsHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel2/EasyFormsRow3"]
 offset_left = 47.5
@@ -76,7 +73,6 @@ offset_bottom = 544.0
 [node name="EasyFormsRow3" type="Node2D" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel3"]
 script = ExtResource("1_igvu8")
 LinesThickness = 3.0
-ControlsHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel3/EasyFormsRow3"]
 offset_left = 47.5
@@ -100,7 +96,6 @@ offset_bottom = 544.0
 [node name="EasyFormsRow3" type="Node2D" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel4"]
 script = ExtResource("1_igvu8")
 LinesThickness = 3.0
-ControlsHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="EasyRowsWithinEasyRows/EasyFormsRow/Panel4/EasyFormsRow3"]
 offset_left = 47.5
