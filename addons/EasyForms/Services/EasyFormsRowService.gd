@@ -63,22 +63,37 @@ func CreateCells(areaAvailable:Rect2i, easyFromsRow:EasyFormsRow, controls:Array
 		var startY:float
 		var width:float
 		var height:float
-		if easyFromsRow.ScaleChildrenToDomainWidth:
+		
+		if easyFromsRow.ScaleChildrenToDomain == easyFromsRow.ScaleChildrenToDomainWhatDimension.No:
+			startX = easyFromsRow.DomainArea.position.x + lastCellEnd
+			width = currElement.size.x + easyFromsRow.CellsSidesMargin
+			startY = easyFromsRow.DomainArea.position.y
+			height = currElement.size.y + easyFromsRow.CellsTopButtMargin
+		elif easyFromsRow.ScaleChildrenToDomain == easyFromsRow.ScaleChildrenToDomainWhatDimension.Width:
 			startX = easyFromsRow.DomainArea.position.x
 			width = easyFromsRow.DomainArea.size.x
 			if "size" in cell.Element: cell.Element.size.x = width
-		else:
+			startY = easyFromsRow.DomainArea.position.y
+			height = currElement.size.y + easyFromsRow.CellsTopButtMargin
+		elif easyFromsRow.ScaleChildrenToDomain == easyFromsRow.ScaleChildrenToDomainWhatDimension.Height:
 			startX = easyFromsRow.DomainArea.position.x + lastCellEnd
 			width = currElement.size.x + easyFromsRow.CellsSidesMargin
-			
-			
-		if easyFromsRow.ScaleChildrenToDomainHeight:
+			startY = easyFromsRow.DomainArea.position.y
+			height = easyFromsRow.DomainArea.size.y
+			if "size" in cell.Element: cell.Element.size.y = height
+		elif easyFromsRow.ScaleChildrenToDomain == easyFromsRow.ScaleChildrenToDomainWhatDimension.WidthAndHeight:
+			startX = easyFromsRow.DomainArea.position.x
+			width = easyFromsRow.DomainArea.size.x
+			if "size" in cell.Element: cell.Element.size.x = width
 			startY = easyFromsRow.DomainArea.position.y
 			height = easyFromsRow.DomainArea.size.y
 			if "size" in cell.Element: cell.Element.size.y = height
 		else:
-			startY = easyFromsRow.DomainArea.position.y
-			height = currElement.size.y + easyFromsRow.CellsTopButtMargin
+			printerr("Invalid ScaleChildrenToDomainWhatDimension " + str(easyFromsRow.ScaleChildrenToDomain))
+			
+			
+			
+			
 			
 		cell.Area = Rect2(startX, startY, width, height)
 		row.append(cell)

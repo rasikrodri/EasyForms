@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://5glbftshhun1"]
+
+[node name="VertAndHorizAlignmentControl" type="Node2D"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 72.0
+offset_bottom = 72.0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+offset_right = 24.0
+offset_bottom = 24.0
+tooltip_text = "Top Left"
+
+[node name="CheckBox2" type="CheckBox" parent="."]
+offset_top = 24.0
+offset_right = 24.0
+offset_bottom = 48.0
+tooltip_text = "Center Left"
+
+[node name="CheckBox3" type="CheckBox" parent="."]
+offset_top = 48.0
+offset_right = 24.0
+offset_bottom = 72.0
+
+[node name="CheckBox4" type="CheckBox" parent="."]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 72.0
+
+[node name="CheckBox5" type="CheckBox" parent="."]
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 72.0
+offset_bottom = 72.0
+
+[node name="CheckBox6" type="CheckBox" parent="."]
+offset_left = 48.0
+offset_top = 24.0
+offset_right = 72.0
+offset_bottom = 48.0
+
+[node name="CheckBox7" type="CheckBox" parent="."]
+offset_left = 48.0
+offset_right = 72.0
+offset_bottom = 24.0
+
+[node name="CheckBox8" type="CheckBox" parent="."]
+offset_left = 24.0
+offset_right = 48.0
+offset_bottom = 24.0
+
+[node name="CheckBox9" type="CheckBox" parent="."]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 48.0
+offset_bottom = 48.0

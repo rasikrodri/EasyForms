@@ -26,21 +26,21 @@ var _independent:bool = false
 	set(value):
 		_independent = value
 		TellServiceToUpdate()
-
-var _scaleChildrenToDomainWidth:bool
-@export var ScaleChildrenToDomainWidth:bool:
-	get:
-		return _scaleChildrenToDomainWidth
-	set(value):
-		_scaleChildrenToDomainWidth = value
-		TellServiceToUpdate()
 		
-var _scaleChildrenToDomainHeight:bool
-@export var ScaleChildrenToDomainHeight:bool:
+		
+enum ScaleChildrenToDomainWhatDimension{
+	No,
+	Width,
+	Height,
+	WidthAndHeight
+}
+
+var _scaleChildrenToDomain:ScaleChildrenToDomainWhatDimension = ScaleChildrenToDomainWhatDimension.No
+@export var ScaleChildrenToDomain:ScaleChildrenToDomainWhatDimension:
 	get:
-		return _scaleChildrenToDomainHeight
+		return _scaleChildrenToDomain
 	set(value):
-		_scaleChildrenToDomainHeight = value
+		_scaleChildrenToDomain = value
 		TellServiceToUpdate()
 
 var _topBottomMargin:float =0.0
