@@ -23,9 +23,16 @@ With EasyForms you can easily create app UI, app Windows, Tables, Forms with con
 
 Limitations:
 	-an EasyFormsRow cannot be a child of another EasyFormRow. This is not supported and probably will never be.
-	-if an EasyFormsRow'sparent does not have the size property the viewport size will be used instead.
+	-if an EasyFormsRow's parent does not have the size property the viewport size will be used instead.
 
- Examples:
+How to use:
+-In the case of adding a new node as child of an EasyFormsRow you can click on the "Update EasyFormsRows" button to recalculate positions
+![image](https://github.com/user-attachments/assets/3835502a-a989-483f-903f-5619b7055c5e)
+
+Settings:
+-Indepenedent - By default all siblings EasyFormsRows are calculated together as a family, but if you check "Independent" the EasyFormsRow will be treated as if the only child, and you can make as mabny as you want "independent".
+
+Examples:
 
 Table
  ![image](https://github.com/user-attachments/assets/dc41e924-6e4a-4822-8414-e4afd90e6902)
