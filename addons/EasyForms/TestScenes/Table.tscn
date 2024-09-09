@@ -22,25 +22,26 @@ CellsSidesMargin = 22.0
 DrawLines = true
 LinesColor = Color(0.544974, 0.544974, 0.544974, 1)
 LinesThickness = 3.0
+CellsContentHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="Table/EasyFormsRow"]
-offset_left = 22.0
+offset_left = 59.0
 offset_top = 19.0
-offset_right = 62.0
+offset_right = 99.0
 offset_bottom = 42.0
 text = "Title"
 
 [node name="Label2" type="Label" parent="Table/EasyFormsRow"]
-offset_left = 158.0
+offset_left = 254.5
 offset_top = 19.0
-offset_right = 215.0
+offset_right = 311.5
 offset_bottom = 42.0
 text = "Titel 2"
 
 [node name="Label3" type="Label" parent="Table/EasyFormsRow"]
-offset_left = 430.0
+offset_left = 476.5
 offset_top = 19.0
-offset_right = 487.0
+offset_right = 533.5
 offset_bottom = 42.0
 text = "Title 3
 "
@@ -52,6 +53,7 @@ CellsSidesMargin = 22.0
 DrawLines = true
 LinesColor = Color(0.544974, 0.544974, 0.544974, 1)
 LinesThickness = 1.5
+CellsContentHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="Table/Bootstrap_Row5"]
 offset_left = 22.0
@@ -75,18 +77,19 @@ CellsSidesMargin = 22.0
 DrawLines = true
 LinesColor = Color(0.544974, 0.544974, 0.544974, 1)
 LinesThickness = 1.5
+CellsContentHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="Table/Bootstrap_Row"]
-offset_left = 22.0
+offset_left = 36.5
 offset_top = 105.0
-offset_right = 107.0
+offset_right = 121.5
 offset_bottom = 128.0
 text = "First Name"
 
 [node name="LineEdit" type="LineEdit" parent="Table/Bootstrap_Row"]
-offset_left = 158.0
+offset_left = 208.0
 offset_top = 101.0
-offset_right = 308.0
+offset_right = 358.0
 offset_bottom = 132.0
 
 [node name="LineEdit2" type="LineEdit" parent="Table/Bootstrap_Row"]
@@ -102,19 +105,20 @@ CellsSidesMargin = 22.0
 DrawLines = true
 LinesColor = Color(0.544974, 0.544974, 0.544974, 1)
 LinesThickness = 1.5
+CellsContentHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="Table/Bootstrap_Row2"]
-offset_left = 22.0
+offset_left = 36.5
 offset_top = 150.0
-offset_right = 107.0
+offset_right = 121.5
 offset_bottom = 173.0
 text = "Last Name"
 metadata/_edit_use_anchors_ = true
 
 [node name="LineEdit" type="LineEdit" parent="Table/Bootstrap_Row2"]
-offset_left = 158.0
+offset_left = 208.0
 offset_top = 146.0
-offset_right = 308.0
+offset_right = 358.0
 offset_bottom = 177.0
 metadata/_edit_use_anchors_ = true
 
@@ -132,24 +136,25 @@ CellsSidesMargin = 22.0
 DrawLines = true
 LinesColor = Color(0.544974, 0.544974, 0.544974, 1)
 LinesThickness = 1.5
+CellsContentHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="Table/Bootstrap_Row3"]
-offset_left = 22.0
+offset_left = 57.5
 offset_top = 195.0
-offset_right = 65.0
+offset_right = 100.5
 offset_bottom = 218.0
 text = "Email"
 
 [node name="LineEdit" type="LineEdit" parent="Table/Bootstrap_Row3"]
-offset_left = 158.0
+offset_left = 208.0
 offset_top = 191.0
-offset_right = 308.0
+offset_right = 358.0
 offset_bottom = 222.0
 
 [node name="LineEdit2" type="LineEdit" parent="Table/Bootstrap_Row3"]
-offset_left = 430.0
+offset_left = 468.5
 offset_top = 191.0
-offset_right = 503.0
+offset_right = 541.5
 offset_bottom = 222.0
 
 [node name="Bootstrap_Row4" type="Node2D" parent="Table"]
@@ -159,18 +164,19 @@ CellsSidesMargin = 22.0
 DrawLines = true
 LinesColor = Color(0.544974, 0.544974, 0.544974, 1)
 LinesThickness = 1.5
+CellsContentHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="Table/Bootstrap_Row4"]
-offset_left = 22.0
+offset_left = 54.0
 offset_top = 240.0
-offset_right = 72.0
+offset_right = 104.0
 offset_bottom = 263.0
 text = "Phone"
 
 [node name="LineEdit" type="LineEdit" parent="Table/Bootstrap_Row4"]
-offset_left = 158.0
+offset_left = 208.0
 offset_top = 236.0
-offset_right = 308.0
+offset_right = 358.0
 offset_bottom = 267.0
 
 [node name="Bootstrap_Row6" type="Node2D" parent="Table"]
@@ -180,18 +186,19 @@ CellsSidesMargin = 22.0
 DrawLines = true
 LinesColor = Color(0.544974, 0.544974, 0.544974, 1)
 LinesThickness = 1.5
+CellsContentHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="Table/Bootstrap_Row6"]
-offset_left = 22.0
+offset_left = 64.0
 offset_top = 285.0
-offset_right = 52.0
+offset_right = 94.0
 offset_bottom = 308.0
 text = "City"
 
 [node name="LineEdit" type="LineEdit" parent="Table/Bootstrap_Row6"]
-offset_left = 158.0
+offset_left = 208.0
 offset_top = 281.0
-offset_right = 308.0
+offset_right = 358.0
 offset_bottom = 312.0
 
 [node name="Bootstrap_Row7" type="Node2D" parent="Table"]
@@ -201,18 +208,19 @@ CellsSidesMargin = 22.0
 DrawLines = true
 LinesColor = Color(0.544974, 0.544974, 0.544974, 1)
 LinesThickness = 1.5
+CellsContentHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="Table/Bootstrap_Row7"]
-offset_left = 22.0
+offset_left = 59.0
 offset_top = 330.0
-offset_right = 62.0
+offset_right = 99.0
 offset_bottom = 353.0
 text = "State"
 
 [node name="LineEdit" type="LineEdit" parent="Table/Bootstrap_Row7"]
-offset_left = 158.0
+offset_left = 208.0
 offset_top = 326.0
-offset_right = 308.0
+offset_right = 358.0
 offset_bottom = 357.0
 
 [node name="Bootstrap_Row8" type="Node2D" parent="Table"]
@@ -222,18 +230,19 @@ CellsSidesMargin = 22.0
 DrawLines = true
 LinesColor = Color(0.544974, 0.544974, 0.544974, 1)
 LinesThickness = 1.5
+CellsContentHorizontalAlignment = 4
 
 [node name="Label" type="Label" parent="Table/Bootstrap_Row8"]
-offset_left = 22.0
+offset_left = 45.5
 offset_top = 375.0
-offset_right = 89.0
+offset_right = 112.5
 offset_bottom = 398.0
 text = "Zip Code"
 
 [node name="LineEdit" type="LineEdit" parent="Table/Bootstrap_Row8"]
-offset_left = 158.0
+offset_left = 208.0
 offset_top = 371.0
-offset_right = 308.0
+offset_right = 358.0
 offset_bottom = 402.0
 
 [node name="Bootstrap_Row9" type="Node2D" parent="Table"]
@@ -245,17 +254,18 @@ CellsSidesMargin = 22.0
 DrawLines = true
 LinesColor = Color(0.544974, 0.544974, 0.544974, 1)
 LinesThickness = 1.5
+CellsContentHorizontalAlignment = 4
 
 [node name="Button" type="Button" parent="Table/Bootstrap_Row9"]
-offset_left = 22.0
+offset_left = 29.0
 offset_top = 416.0
-offset_right = 122.0
+offset_right = 129.0
 offset_bottom = 447.0
 text = "Submit"
 
 [node name="Button2" type="Button" parent="Table/Bootstrap_Row9"]
-offset_left = 158.0
+offset_left = 233.0
 offset_top = 416.0
-offset_right = 258.0
+offset_right = 333.0
 offset_bottom = 447.0
 text = "Cancel"

@@ -4,38 +4,15 @@
 
 [node name="TopMenuAndSidePanels" type="Node2D"]
 
-[node name="EasyFormsRow4" type="Node2D" parent="."]
-script = ExtResource("1_2alio")
-ScaleChildrenToDomainHeight = true
-DisconectedFromSiblings = true
-RowHorizontalAlignment = 0
-
-[node name="Panel" type="Panel" parent="EasyFormsRow4"]
-offset_right = 182.0
-offset_bottom = 648.0
-
-[node name="EasyFormsRow5" type="Node2D" parent="."]
-script = ExtResource("1_2alio")
-ScaleChildrenToDomainHeight = true
-DisconectedFromSiblings = true
-RowHorizontalAlignment = 2
-
-[node name="Panel" type="Panel" parent="EasyFormsRow5"]
-offset_left = 992.0
-offset_right = 1152.0
-offset_bottom = 648.0
-
 [node name="EasyFormsRow" type="Node2D" parent="."]
 script = ExtResource("1_2alio")
-ScaleChildrenToDomainWidth = true
-DisconectedFromSiblings = true
+ScaleChildrenToDomain = 1
 RowVerticalAlignment = 0
 RowHorizontalAlignment = 0
-ControlsHorizontalAlignment = 0
 
 [node name="Panel3" type="Panel" parent="EasyFormsRow"]
 offset_right = 1152.0
-offset_bottom = 50.0
+offset_bottom = 36.0
 
 [node name="Panel" type="Panel" parent="EasyFormsRow/Panel3"]
 layout_mode = 0
@@ -102,24 +79,93 @@ offset_right = 92.0
 offset_bottom = 31.0
 text = "B3"
 
+[node name="Content" type="Node2D" parent="."]
+script = ExtResource("1_2alio")
+ScaleChildrenToDomain = 3
+RowVerticalAlignment = 0
+
+[node name="Panel" type="Panel" parent="Content"]
+offset_top = 36.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="EasyFormsRow5" type="Node2D" parent="Content/Panel"]
+script = ExtResource("1_2alio")
+Independent = true
+ScaleChildrenToDomain = 2
+RowHorizontalAlignment = 0
+
+[node name="Panel" type="Panel" parent="Content/Panel/EasyFormsRow5"]
+offset_right = 213.0
+offset_bottom = 612.0
+
+[node name="EasyFormsRow" type="Node2D" parent="Content/Panel/EasyFormsRow5/Panel"]
+script = ExtResource("1_2alio")
+
+[node name="Label" type="Label" parent="Content/Panel/EasyFormsRow5/Panel/EasyFormsRow"]
+offset_left = 26.5
+offset_top = 294.5
+offset_right = 186.5
+offset_bottom = 317.5
+text = "Tracking some items"
+
+[node name="EasyFormsRow6" type="Node2D" parent="Content/Panel"]
+script = ExtResource("1_2alio")
+Independent = true
+ScaleChildrenToDomain = 2
+RowHorizontalAlignment = 2
+
+[node name="Panel" type="Panel" parent="Content/Panel/EasyFormsRow6"]
+offset_left = 909.0
+offset_right = 1152.0
+offset_bottom = 612.0
+
+[node name="EasyFormsRow" type="Node2D" parent="Content/Panel/EasyFormsRow6/Panel"]
+script = ExtResource("1_2alio")
+
+[node name="Label" type="Label" parent="Content/Panel/EasyFormsRow6/Panel/EasyFormsRow"]
+offset_left = 77.0
+offset_top = 294.5
+offset_right = 166.0
+offset_bottom = 317.5
+text = "Some Tools"
+
 [node name="EasyFormsRow2" type="Node2D" parent="."]
 script = ExtResource("1_2alio")
-ScaleChildrenToDomainWidth = true
+ScaleChildrenToDomain = 1
 RowVerticalAlignment = 2
-RowHorizontalAlignment = 0
 
 [node name="Panel" type="Panel" parent="EasyFormsRow2"]
 offset_top = 568.0
 offset_right = 1152.0
 offset_bottom = 608.0
 
+[node name="EasyFormsRow" type="Node2D" parent="EasyFormsRow2/Panel"]
+script = ExtResource("1_2alio")
+
+[node name="Label" type="Label" parent="EasyFormsRow2/Panel/EasyFormsRow"]
+offset_left = 531.5
+offset_top = 8.5
+offset_right = 620.5
+offset_bottom = 31.5
+text = "Some Tools"
+
 [node name="EasyFormsRow3" type="Node2D" parent="."]
 script = ExtResource("1_2alio")
-ScaleChildrenToDomainWidth = true
+ScaleChildrenToDomain = 1
 RowVerticalAlignment = 2
-RowHorizontalAlignment = 0
 
 [node name="Panel" type="Panel" parent="EasyFormsRow3"]
 offset_top = 608.0
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[node name="EasyFormsRow" type="Node2D" parent="EasyFormsRow3/Panel"]
+script = ExtResource("1_2alio")
+
+[node name="Label" type="Label" parent="EasyFormsRow3/Panel/EasyFormsRow"]
+offset_left = 515.5
+offset_top = 8.5
+offset_right = 636.5
+offset_bottom = 31.5
+text = "Some Feedback"
