@@ -50,7 +50,7 @@ func _on_item_selected(index:int)->void:
 		var editedScene:Node = EditorInterface.get_edited_scene_root()
 		_scenesSelectedSceneSettings[editedScene.name] = testResolution
 		EasyFormsService.PreviewResolution = testResolution
-		EasyFormsService.UpdateCurrentScene(editedScene.get_tree())
+		EasyFormsService.UpdateCurrentScene()
 		
 	pass
 	

@@ -7,6 +7,6 @@ To not Do because it is too complicated:
 	-Implement support for EasyFormRows within EasyFormRows - Too complicated - Maybe in the future
 
 To do:
-	-If needed, optimize coed for more speed 
+	-Add realtime feed back when a 
 	
 To fix:

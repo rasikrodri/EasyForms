@@ -177,11 +177,7 @@ class TableLine:
 	
 var _loadingDone:bool = false
 func  _ready():
-	#self.connect("child_entered_tree", Callable(self, "child_enterd_tree"))
 	_loadingDone = true
-	
-	EasyFormsService.ConnectSignals(self)
-	pass
 	
 func _draw():
 	if not _drawRowLines: return
@@ -277,7 +273,7 @@ func CalculateTableLines()->void:
 	pass
 
 func TellServiceToUpdate()->void:
-	if _loadingDone: EasyFormsService.UpdateRowScene(self)
+	if _loadingDone: EasyFormsService.UpdateCurrentScene()
 	pass
 	
 func Reset()->void:

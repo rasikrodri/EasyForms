@@ -8,12 +8,38 @@ var viewportKey:String = "Viewport"
 func UpdateAllInScene(sceneTree:SceneTree, viewportSize:Vector2)->void:
 	#var viewport:Viewport = sceneTree.root.get_viewport()
 	
+	#We need to update all EasyFormsRows that are a decendant of EasyFormsLink
+	#after we update the EasyFormsLinks, because their positions are depenedent
+	#on the posiiton and size that EasyFormsLinks git to it's children
+	
+	#1)Becuase of this we will first update all EasyFormsRows that are not a decendant of EasyFormsLinks
+	UpdateEasyFormsRows(sceneTree, viewportSize)
+		
+	#2)Now we can update All EasyFormsLinks
+	UdateEasyFormsLinks(sceneTree.root)
+	
+	#3)And, unfortunately, now that the EasyFormsRows are positioned and the EasyFormsLinks have streatched
+	#their children, we need to update all EasyFormsRows again so that every EasyFormsRow
+	#That is a descendant of an EasyFOrmsLink get updated according to the changes
+	#EasyFormsLinks made to their children
+	UpdateEasyFormsRows(sceneTree, viewportSize)
+	
+	pass
+	
+func UpdateEasyFormsRows(sceneTree:SceneTree, viewportSize:Vector2)->void:
 	var allEasyFormRowsDic:Dictionary = {}
-	CompileMainRows(sceneTree.root, allEasyFormRowsDic)
+	CompileEasyFormsRows(sceneTree.root, allEasyFormRowsDic)
 	ValidateCompiledEasyFormRows(allEasyFormRowsDic)
 		
 	for arr in allEasyFormRowsDic.values():
 		CalculateRowsInArea(arr as Array[EasyFormsRow], viewportSize)
+	pass
+	
+func UdateEasyFormsLinks(parentNode:Node)->void:
+	for child in parentNode.get_children():
+		if child is EasyFormsLink:
+			(child as EasyFormsLink).UpdateChildren()
+		UdateEasyFormsLinks(child)
 	pass
 
 func ValidateCompiledEasyFormRows(allEasyFormRowsDic:Dictionary)->void:
@@ -32,7 +58,7 @@ func ValidateCompiledEasyFormRows(allEasyFormRowsDic:Dictionary)->void:
 	
 	pass
 	
-func CompileMainRows(parentNode:Node, allEasyFormRowsDic:Dictionary)->void:
+func CompileEasyFormsRows(parentNode:Node, allEasyFormRowsDic:Dictionary)->void:
 	for child in parentNode.get_children():
 		if child is EasyFormsRow:
 			if not allEasyFormRowsDic.has(parentNode):
@@ -40,7 +66,7 @@ func CompileMainRows(parentNode:Node, allEasyFormRowsDic:Dictionary)->void:
 				allEasyFormRowsDic[parentNode] = arr
 			allEasyFormRowsDic[parentNode].append(child)
 			
-		CompileMainRows(child, allEasyFormRowsDic)
+		CompileEasyFormsRows(child, allEasyFormRowsDic)
 	pass
 	
 func CalculateRowsInArea(rows:Array[EasyFormsRow], viewportAreaSize:Vector2)->void:

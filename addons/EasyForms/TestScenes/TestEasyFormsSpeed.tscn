@@ -2,62 +2,49 @@
 
 [ext_resource type="Script" path="res://addons/EasyForms/TestScenes/test_easy_forms_speed.gd" id="1_1d56k"]
 [ext_resource type="Script" path="res://addons/EasyForms/Components/EasyFormsRow.gd" id="1_8ix4p"]
-[ext_resource type="PackedScene" uid="uid://c7u7pfn1n8mb5" path="res://addons/EasyForms/ReusableForms/LogInForm.tscn" id="1_ah743"]
+[ext_resource type="PackedScene" uid="uid://bg3pbj4yxt2dc" path="res://addons/EasyForms/TestScenes/TopMenuAndSidePanels.tscn" id="3_77mwn"]
 
 [node name="TestEasyFormsSpeed" type="Node2D"]
 script = ExtResource("1_1d56k")
 
-[node name="BackGround" type="Node2D" parent="."]
-script = ExtResource("1_8ix4p")
-Independent = true
-ScaleChildrenToDomain = 3
-
-[node name="Panel" type="Panel" parent="BackGround"]
-self_modulate = Color(0, 0, 0, 1)
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="LogInForm" parent="." instance=ExtResource("1_ah743")]
-Independent = true
+[node name="TopMenuAndSidePanels" parent="." instance=ExtResource("3_77mwn")]
 
 [node name="EasyFormsRow" type="Node2D" parent="."]
 script = ExtResource("1_8ix4p")
-RowVerticalAlignment = 0
-RowHorizontalAlignment = 0
 CellsSidesMargin = 6.0
 
 [node name="Label" type="Label" parent="EasyFormsRow"]
-offset_left = 3.0
-offset_right = 123.0
-offset_bottom = 23.0
+offset_left = 493.0
+offset_top = 301.0
+offset_right = 613.0
+offset_bottom = 324.0
 text = "Microseconds = 
 "
 
 [node name="lblMicroseconds" type="Label" parent="EasyFormsRow"]
 unique_name_in_owner = true
-offset_left = 129.0
-offset_right = 169.0
-offset_bottom = 23.0
+offset_left = 619.0
+offset_top = 301.0
+offset_right = 659.0
+offset_bottom = 324.0
 text = "0.0"
 
 [node name="EasyFormsRow2" type="Node2D" parent="."]
 script = ExtResource("1_8ix4p")
-RowVerticalAlignment = 0
-RowHorizontalAlignment = 0
 CellsSidesMargin = 6.0
 
 [node name="Label" type="Label" parent="EasyFormsRow2"]
-offset_left = 3.0
-offset_top = 23.0
-offset_right = 112.0
-offset_bottom = 46.0
+offset_left = 493.0
+offset_top = 324.0
+offset_right = 602.0
+offset_bottom = 347.0
 text = "Milliseconds = 
 "
 
 [node name="lblMilliseconds" type="Label" parent="EasyFormsRow2"]
 unique_name_in_owner = true
-offset_left = 129.0
-offset_top = 23.0
-offset_right = 169.0
-offset_bottom = 46.0
+offset_left = 619.0
+offset_top = 324.0
+offset_right = 659.0
+offset_bottom = 347.0
 text = "0.0"
