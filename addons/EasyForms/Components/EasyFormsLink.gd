@@ -150,28 +150,30 @@ func TellServiceToUpdate()->void:
 func UpdateChildren()->void:
 	var viewportSize : Vector2 = EasyFormsService.GetViewport(get_tree().root.get_viewport())
 	#var camera := viewport.get_camera_2d()
+	
+	#In here we need to deal with global positions
 	for child in get_children():
 		if "size" not in child or "position" not in child: return
 		
 		if TopLinkageActive and _linkTopTo != null:
-			child.position.y = _linkTopTo.position.y + _linkTopTo.size.y + _topMargin
+			child.global_position.y = _linkTopTo.global_position.y + _linkTopTo.size.y + _topMargin
 		elif TopLinkageActive:
-			child.position.y = 0.0 + _topMargin
+			child.global_position.y = 0.0 + _topMargin
 			
 		if BottomLinkageActive and _linkBottomTo != null:
-			child.size.y = _linkBottomTo.position.y - child.position.y - _bottomMargin
+			child.size.y = _linkBottomTo.global_position.y - child.global_position.y - _bottomMargin
 		elif BottomLinkageActive:
 			print(1)
-			child.size.y = viewportSize.y - child.position.y - _bottomMargin
+			child.size.y = viewportSize.y - child.global_position.y - _bottomMargin
 			
 		if LeftLinkageActive and _linkLeftTo != null:
-			child.position.x = _linkLeftTo.position.x + _linkLeftTo.size.x + _leftMargin
+			child.global_position.x = _linkLeftTo.global_position.x + _linkLeftTo.size.x + _leftMargin
 		elif LeftLinkageActive:
-			child.position.x = 0.0 + _leftMargin
+			child.global_position.x = 0.0 + _leftMargin
 			
 		if RightLinkageActive and _linkRightTo != null:
-			child.size.x = _linkRightTo.position.x - child.position.x - _rightMargin
+			child.size.x = _linkRightTo.global_position.x - child.global_position.x - _rightMargin
 		elif RightLinkageActive:
-			child.size.x = viewportSize.x - child.position.x - _rightMargin
+			child.size.x = viewportSize.x - child.global_position.x - _rightMargin
 	pass
 	

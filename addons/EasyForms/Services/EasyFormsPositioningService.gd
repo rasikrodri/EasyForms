@@ -64,6 +64,9 @@ func CompileEasyFormsRows(parentNode:Node, allEasyFormRowsDic:Dictionary)->void:
 			if not allEasyFormRowsDic.has(parentNode):
 				var arr:Array[EasyFormsRow] = []
 				allEasyFormRowsDic[parentNode] = arr
+			
+			#make sure that all EasyFormsRows have to be at position 0, 0
+			child.position = Vector2(0,0)
 			allEasyFormRowsDic[parentNode].append(child)
 			
 		CompileEasyFormsRows(child, allEasyFormRowsDic)

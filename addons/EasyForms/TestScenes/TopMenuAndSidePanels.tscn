@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg3pbj4yxt2dc"]
+[gd_scene load_steps=6 format=3 uid="uid://bg3pbj4yxt2dc"]
 
 [ext_resource type="Script" path="res://addons/EasyForms/Components/EasyFormsRow.gd" id="1_2alio"]
 [ext_resource type="Script" path="res://addons/EasyForms/Components/EasyFormsLink.gd" id="2_1piph"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ntij"]
+
+[sub_resource type="Sky" id="Sky_dr7fp"]
+sky_material = SubResource("ProceduralSkyMaterial_6ntij")
+
+[sub_resource type="Environment" id="Environment_4o7ra"]
+background_mode = 2
+background_color = Color(0.54902, 0, 0, 1)
+sky = SubResource("Sky_dr7fp")
+sky_custom_fov = 75.0
 
 [node name="TopMenuAndSidePanels" type="Node2D"]
 
@@ -21,41 +32,90 @@ offset_top = 36.5
 offset_right = 1152.0
 offset_bottom = 566.5
 
-[node name="EasyFormsRow" type="Node2D" parent="MidleLink/Panel"]
+[node name="EasyFormsRow4" type="Node2D" parent="MidleLink/Panel"]
 script = ExtResource("1_2alio")
+Independent = true
+ScaleChildrenToDomain = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MidleLink/Panel/EasyFormsRow4"]
+offset_right = 1152.0
+offset_bottom = 530.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MidleLink/Panel/EasyFormsRow4/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 530)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="MidleLink/Panel/EasyFormsRow4/SubViewportContainer/SubViewport"]
+environment = SubResource("Environment_4o7ra")
+
+[node name="EasyFormsRow" type="Node2D" parent="MidleLink"]
+position = Vector2(0, 36.5)
+script = ExtResource("1_2alio")
+Independent = true
 ScaleChildrenToDomain = 2
 RowVerticalAlignment = 0
 RowHorizontalAlignment = 0
 
-[node name="Panel" type="Panel" parent="MidleLink/Panel/EasyFormsRow"]
-offset_right = 213.0
+[node name="Panel" type="Panel" parent="MidleLink/EasyFormsRow"]
+offset_right = 371.0
 offset_bottom = 530.0
 
-[node name="EasyFormsRow" type="Node2D" parent="MidleLink/Panel/EasyFormsRow/Panel"]
+[node name="EasyFormsRow" type="Node2D" parent="MidleLink/EasyFormsRow/Panel"]
+script = ExtResource("1_2alio")
+ScaleChildrenToDomain = 1
+
+[node name="Panel" type="Panel" parent="MidleLink/EasyFormsRow/Panel/EasyFormsRow"]
+offset_top = 225.0
+offset_right = 371.0
+offset_bottom = 265.0
+
+[node name="EasyFormsRow" type="Node2D" parent="MidleLink/EasyFormsRow/Panel/EasyFormsRow/Panel"]
 script = ExtResource("1_2alio")
 
-[node name="Label" type="Label" parent="MidleLink/Panel/EasyFormsRow/Panel/EasyFormsRow"]
-offset_left = 26.5
-offset_top = 253.5
-offset_right = 186.5
-offset_bottom = 276.5
-text = "Tracking some items"
+[node name="Label" type="Label" parent="MidleLink/EasyFormsRow/Panel/EasyFormsRow/Panel/EasyFormsRow"]
+offset_left = 99.0
+offset_top = 8.5
+offset_right = 272.0
+offset_bottom = 31.5
+text = "Tracking some items 1"
 
-[node name="EasyFormsRow6" type="Node2D" parent="MidleLink/Panel"]
+[node name="EasyFormsRow2" type="Node2D" parent="MidleLink/EasyFormsRow/Panel"]
+script = ExtResource("1_2alio")
+ScaleChildrenToDomain = 1
+
+[node name="Panel2" type="Panel" parent="MidleLink/EasyFormsRow/Panel/EasyFormsRow2"]
+offset_top = 265.0
+offset_right = 371.0
+offset_bottom = 305.0
+
+[node name="EasyFormsRow" type="Node2D" parent="MidleLink/EasyFormsRow/Panel/EasyFormsRow2/Panel2"]
+script = ExtResource("1_2alio")
+
+[node name="Label2" type="Label" parent="MidleLink/EasyFormsRow/Panel/EasyFormsRow2/Panel2/EasyFormsRow"]
+offset_left = 99.0
+offset_top = 8.5
+offset_right = 272.0
+offset_bottom = 31.5
+text = "Tracking some items 2"
+
+[node name="EasyFormsRow6" type="Node2D" parent="MidleLink"]
+position = Vector2(0, 36.5)
 script = ExtResource("1_2alio")
 Independent = true
 ScaleChildrenToDomain = 2
 RowHorizontalAlignment = 2
 
-[node name="Panel" type="Panel" parent="MidleLink/Panel/EasyFormsRow6"]
+[node name="Panel" type="Panel" parent="MidleLink/EasyFormsRow6"]
 offset_left = 909.0
 offset_right = 1152.0
 offset_bottom = 530.0
 
-[node name="EasyFormsRow" type="Node2D" parent="MidleLink/Panel/EasyFormsRow6/Panel"]
+[node name="EasyFormsRow" type="Node2D" parent="MidleLink/EasyFormsRow6/Panel"]
 script = ExtResource("1_2alio")
 
-[node name="Label" type="Label" parent="MidleLink/Panel/EasyFormsRow6/Panel/EasyFormsRow"]
+[node name="Label" type="Label" parent="MidleLink/EasyFormsRow6/Panel/EasyFormsRow"]
 offset_left = 77.0
 offset_top = 253.5
 offset_right = 166.0
