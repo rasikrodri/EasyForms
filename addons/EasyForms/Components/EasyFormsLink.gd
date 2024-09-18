@@ -7,14 +7,13 @@ class_name EasyFormsLink
 
 @export_category("Top")
 
-var _linkTopTo:Node
 var _topLinkageActive:bool = false
 @export var TopLinkageActive:bool = false:
 	get:
 		return _topLinkageActive
 	set(val):
 		_topLinkageActive = val
-		TellServiceToUpdate()
+		if _loadingDone: Update()
 		
 var _topMargin:float = 0.0
 @export var TopMargin:float = 0.0:
@@ -22,19 +21,23 @@ var _topMargin:float = 0.0
 		return _topMargin
 	set(val):
 		_topMargin = val
-		TellServiceToUpdate()
+		if _loadingDone: Update()
 
+var _linkTopTo:Node
 @export var LinkTopTo:Node:
 	get:
 		return _linkTopTo
 	set(node):
-		if node == null:
+		if not _loadingDone:
 			_linkTopTo = node
-			return
-			
-		if not ValidateAssignedNode(node):return
-		_linkTopTo = node
-		TellServiceToUpdate()
+		else:
+			if node == null:
+				_linkTopTo = null
+				return
+				
+			if not ValidateAssignedNode(node):return
+			_linkTopTo = node
+			Update()
 
 @export_category("Buttom")
 
@@ -44,7 +47,7 @@ var _bottomLinkageActive:bool = false
 		return _bottomLinkageActive
 	set(val):
 		_bottomLinkageActive = val
-		TellServiceToUpdate()
+		if _loadingDone: Update()
 
 var _bottomMargin:float = 0.0
 @export var BottomMargin:float = 0.0:
@@ -52,22 +55,25 @@ var _bottomMargin:float = 0.0
 		return _bottomMargin
 	set(val):
 		_bottomMargin = val
-		TellServiceToUpdate()
+		if _loadingDone: Update()
 
 var _linkBottomTo:Node
 @export var LinkBottomTo:Node:
 	get:
 		return _linkBottomTo
 	set(node):
-		if node == null:
+		if not _loadingDone:
 			_linkBottomTo = node
-			return
-			
-		if not ValidateAssignedNode(node):return
-		_linkBottomTo = node
-		TellServiceToUpdate()
+		else:
+			if node == null:
+				_linkBottomTo = null
+				return
+				
+			if not ValidateAssignedNode(node):return
+			_linkBottomTo = node
+			Update()
 		
-@export_category("Buttom")
+@export_category("Left")
 
 var _leftLinkageActive:bool = false
 @export var LeftLinkageActive:bool = false:
@@ -75,7 +81,7 @@ var _leftLinkageActive:bool = false
 		return _leftLinkageActive
 	set(val):
 		_leftLinkageActive = val
-		TellServiceToUpdate()
+		if _loadingDone: Update()
 		
 var _leftMargin:float = 0.0
 @export var LeftMargin:float = 0.0:
@@ -83,22 +89,25 @@ var _leftMargin:float = 0.0
 		return _leftMargin
 	set(val):
 		_leftMargin = val
-		TellServiceToUpdate()
+		if _loadingDone: Update()
 
 var _linkLeftTo:Node
 @export var LinkLeftTo:Node:
 	get:
 		return _linkLeftTo
 	set(node):
-		if node == null:
+		if not _loadingDone:
 			_linkLeftTo = node
-			return
-			
-		if not ValidateAssignedNode(node):return
-		_linkLeftTo = node
-		TellServiceToUpdate()
+		else:
+			if node == null:
+				_linkLeftTo = null
+				return
+				
+			if not ValidateAssignedNode(node):return
+			_linkLeftTo = node
+			Update()
 		
-@export_category("Buttom")
+@export_category("Right")
 
 var _rightLinkageActive:bool = false
 @export var RightLinkageActive:bool = false:
@@ -106,7 +115,7 @@ var _rightLinkageActive:bool = false
 		return _rightLinkageActive
 	set(val):
 		_rightLinkageActive = val
-		TellServiceToUpdate()
+		if _loadingDone: Update()
 		
 var _rightMargin:float = 0.0
 @export var RightMargin:float = 0.0:
@@ -114,20 +123,24 @@ var _rightMargin:float = 0.0
 		return _rightMargin
 	set(val):
 		_rightMargin = val
-		TellServiceToUpdate()
+		if _loadingDone: Update()
 
 var _linkRightTo:Node
 @export var LinkRightTo:Node:
 	get:
 		return _linkRightTo
 	set(node):
-		if node == null:
+		if not _loadingDone:
 			_linkRightTo = node
-			return
-			
-		if not ValidateAssignedNode(node):return
-		_linkRightTo = node
-		TellServiceToUpdate()
+		else:
+			if node == null:
+				_linkRightTo = null
+				return
+				
+			if not ValidateAssignedNode(node):return
+			_linkRightTo = node
+			Update()
+		
 
 var _loadingDone:bool = false
 func  _ready():
@@ -140,14 +153,13 @@ func ValidateAssignedNode(node:Node)->bool:
 	if not "position" in node:
 		printerr("The node must have a position property")
 		return false
+		
+	#Make sure there is no circular refference
 				
 	return true
-	
-func TellServiceToUpdate()->void:
-	if _loadingDone: EasyFormsService.UpdateCurrentScene()
 	pass
-	
-func UpdateChildren()->void:
+		
+func Update()->void:
 	var viewportSize : Vector2 = EasyFormsService.GetViewport(get_tree().root.get_viewport())
 	#var camera := viewport.get_camera_2d()
 	
