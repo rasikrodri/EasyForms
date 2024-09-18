@@ -7,6 +7,6 @@ To not Do because it is too complicated:
 	-Implement support for EasyFormRows within EasyFormRows - Too complicated - Maybe in the future
 
 To do:
-	-Add realtime feed back when a 
+	-Update EasyFormsLinks when it's lide lonked nodes change position and/or size
 	
 To fix:

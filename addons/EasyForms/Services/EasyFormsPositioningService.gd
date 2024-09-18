@@ -19,33 +19,23 @@ func UpdateAllInScene(sceneTree:SceneTree, viewportSize:Vector2)->void:
 	
 func UpdateEasyForms(parentNode:Node, viewportSize:Vector2)->void:
 	var easyFormsRows:Array[EasyFormsRow] = []
-	var easyFormsLinks:Array[EasyFormsLink] = []
 	var nodes:Array[Node] = []
 	for child in parentNode.get_children():
-		if child is EasyFormsRow:
-			easyFormsRows.append(child)
-			
-		elif child is EasyFormsLink:
-			easyFormsLinks.append(child)
-			
-		else:
-			nodes.append(child)
+		if child is EasyFormsRow: easyFormsRows.append(child)
+		nodes.append(child)
 			
 		
+	#We position EasyFormsRows first and together
+	#because they are designed to be calculated together
 	if easyFormsRows.size() > 0:
 		ValidateCompiledEasyFormRows(easyFormsRows)
 		CalculateRowsInArea(easyFormsRows, viewportSize)
-		for n in easyFormsRows:
-			UpdateEasyForms(n, viewportSize)
 	
-	if easyFormsLinks.size() > 0:
-		for n in easyFormsLinks:
-			n.Update()
-			UpdateEasyForms(n, viewportSize)
-			
-	
+	#In here, if we encounter an EasyFormsLink we update it right away
+	#For all we update EasyForms
 	if nodes.size() > 0:
 		for n in nodes:
+			if n is EasyFormsLink: n.Update()
 			UpdateEasyForms(n, viewportSize)
 		
 	pass
