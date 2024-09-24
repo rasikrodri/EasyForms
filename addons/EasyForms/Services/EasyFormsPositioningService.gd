@@ -5,15 +5,10 @@ var _easyFormsRowService:= preload("res://addons/EasyForms/Services/EasyFormsRow
 
 var viewportKey:String = "Viewport"
 
-func UpdateAllInScene(sceneTree:SceneTree, viewportSize:Vector2)->void:
-	#var viewport:Viewport = sceneTree.root.get_viewport()
-	
-	#The user will have to make sure that the linked nodes
-	#are updated before we update the EasyFormsLinks nodes
-	#The user can accomplish this by placing the EasyFormsLinks at 
-	#lower tree node of the scene or just at the bottom of the scene tree
-	#So that everything before it gets updated
-	UpdateEasyForms(sceneTree.root, viewportSize)
+
+
+func UpdateEasyFormsLinks(parentNode:Node, viewportSize:Vector2)->void:
+	var _easyFormsLinks:Array[EasyFormsLink] = []
 	
 	pass
 	

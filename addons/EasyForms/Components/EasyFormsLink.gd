@@ -160,7 +160,7 @@ func ValidateAssignedNode(node:Node)->bool:
 	pass
 		
 func Update()->void:
-	var viewportSize : Vector2 = EasyFormsService.GetViewport(get_tree().root.get_viewport())
+	var viewportSize : Vector2 = EasyFormsService.GetViewportSize(get_tree().root.get_viewport())
 	#var camera := viewport.get_camera_2d()
 	
 	#In here we need to deal with global positions

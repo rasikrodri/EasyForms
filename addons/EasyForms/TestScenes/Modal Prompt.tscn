@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://druakpvrpg3bp"]
+
+[ext_resource type="Script" path="res://addons/EasyForms/Components/EasyFormsRow.gd" id="1_rcfdv"]
+
+[node name="ModalPrompt" type="Node2D"]
+script = ExtResource("1_rcfdv")
+Independent = true
+
+[node name="Background" type="Panel" parent="."]
+offset_left = 382.5
+offset_top = 232.5
+offset_right = 769.5
+offset_bottom = 415.5
+
+[node name="EasyFormsRow" type="Node2D" parent="Background"]
+script = ExtResource("1_rcfdv")
+ScaleChildrenToDomain = 1
+RowVerticalAlignment = 0
+
+[node name="ToopStrip" type="Panel" parent="Background/EasyFormsRow"]
+offset_right = 387.0
+offset_bottom = 40.0
+
+[node name="EasyFormsRow2" type="Node2D" parent="Background/EasyFormsRow/ToopStrip"]
+script = ExtResource("1_rcfdv")
+Independent = true
+SidesMargin = 7.0
+RowHorizontalAlignment = 0
+
+[node name="Label" type="Label" parent="Background/EasyFormsRow/ToopStrip/EasyFormsRow2"]
+offset_left = 7.0
+offset_top = 8.5
+offset_right = 103.0
+offset_bottom = 31.5
+text = "Prompt Title"
+
+[node name="EasyFormsRow" type="Node2D" parent="Background/EasyFormsRow/ToopStrip"]
+script = ExtResource("1_rcfdv")
+Independent = true
+SidesMargin = 7.0
+RowHorizontalAlignment = 2
+
+[node name="Button" type="Button" parent="Background/EasyFormsRow/ToopStrip/EasyFormsRow"]
+offset_left = 362.0
+offset_top = 4.5
+offset_right = 380.0
+offset_bottom = 35.5
+text = "X"
+
+[node name="EasyFormsRow2" type="Node2D" parent="Background"]
+script = ExtResource("1_rcfdv")
+ScaleChildrenToDomain = 3
+
+[node name="Content" type="Panel" parent="Background/EasyFormsRow2"]
+offset_top = 40.0
+offset_right = 387.0
+offset_bottom = 183.0
+
+[node name="EasyFormsRow" type="Node2D" parent="Background/EasyFormsRow2/Content"]
+script = ExtResource("1_rcfdv")
+ScaleChildrenToDomain = 1
+RowVerticalAlignment = 0
+
+[node name="PanelContainer" type="Panel" parent="Background/EasyFormsRow2/Content/EasyFormsRow"]
+offset_right = 387.0
+offset_bottom = 99.0
+
+[node name="EasyFormsRow" type="Node2D" parent="Background/EasyFormsRow2/Content/EasyFormsRow/PanelContainer"]
+script = ExtResource("1_rcfdv")
+
+[node name="Label" type="Label" parent="Background/EasyFormsRow2/Content/EasyFormsRow/PanelContainer/EasyFormsRow"]
+offset_left = 88.0
+offset_top = 38.0
+offset_right = 299.0
+offset_bottom = 61.0
+text = "Question to ask, Yes or No?"
+
+[node name="EasyFormsRow2" type="Node2D" parent="Background/EasyFormsRow2/Content"]
+script = ExtResource("1_rcfdv")
+ScaleChildrenToDomain = 1
+RowVerticalAlignment = 2
+
+[node name="Panel" type="Panel" parent="Background/EasyFormsRow2/Content/EasyFormsRow2"]
+offset_top = 98.0
+offset_right = 387.0
+offset_bottom = 143.0
+
+[node name="EasyFormsRow" type="Node2D" parent="Background/EasyFormsRow2/Content/EasyFormsRow2/Panel"]
+script = ExtResource("1_rcfdv")
+SidesMargin = -695.0
+CellsSidesMargin = 240.0
+
+[node name="Button" type="Button" parent="Background/EasyFormsRow2/Content/EasyFormsRow2/Panel/EasyFormsRow"]
+offset_left = 40.5
+offset_top = 7.0
+offset_right = 71.5
+offset_bottom = 38.0
+text = "No"
+
+[node name="Button2" type="Button" parent="Background/EasyFormsRow2/Content/EasyFormsRow2/Panel/EasyFormsRow"]
+offset_left = 311.5
+offset_top = 7.0
+offset_right = 346.5
+offset_bottom = 38.0
+text = "Yes
+"

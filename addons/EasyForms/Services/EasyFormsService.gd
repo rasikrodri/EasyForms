@@ -33,7 +33,7 @@ func PrintProcessTotalTime()->void:
 	var execution_time = end_time - _process_start_time
 	for node in _speedTestSubscribedNodes: node.UpdateMicroSecondsTaken(execution_time)
 			
-func GetViewport(viewport:Viewport)->Vector2:
+func GetViewportSize(viewport:Viewport)->Vector2:
 	if Engine.is_editor_hint():
 		return Vector2(1152, 648)#This is the sice of the subviewport on the editor
 	else:
@@ -49,11 +49,22 @@ func UpdateCurrentScene()->void:
 	
 	var sceneTree:SceneTree = get_tree()
 	var viewport : Viewport = get_tree().root.get_viewport()
-	_positioningService.UpdateAllInScene(
-		sceneTree,
-		GetViewport(viewport)
-	)
 	
+	#var viewport:Viewport = sceneTree.root.get_viewport()
+	
+	#The user will have to make sure that the linked nodes
+	#are updated before we update the EasyFormsLinks nodes
+	#The user can accomplish this by placing the EasyFormsLinks at 
+	#lower tree node of the scene or just at the bottom of the scene tree
+	#So that everything before it gets updated
+	_positioningService.UpdateEasyForms(sceneTree.root, GetViewportSize(viewport))
+		
 	PrintProcessTotalTime()
+	pass
+	
+func  _process(delta: float) -> void:
+	var sceneTree:SceneTree = get_tree()
+	var viewport : Viewport = get_tree().root.get_viewport()
+	_positioningService.UpdateEasyFormsLinks(sceneTree.root, GetViewportSize(viewport))
 	pass
 		
